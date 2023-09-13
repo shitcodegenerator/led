@@ -53,14 +53,11 @@ const onBtnClick = (type) => {
   }
 };
 
-const isAgreeEvent = ref(false);
+const isAgreeEvent = ref(true);
 const isError = ref(false);
 
 const onClickEnroll = () => {
-  if (!isAgreeEvent.value) {
-    isError.value = true;
-    return;
-  }
+  console.log('click')
   dialog.value = false;
   successDialog.value = true;
   successMsg.value =
@@ -157,28 +154,9 @@ window.addEventListener('scroll', handleScroll);
             X
           </div>
 
-          <Enroll />
+          <Enroll @onClickEnroll="onClickEnroll" />
 
-          <div class="flex items-center flex-row mb-10">
-            <input
-              type="checkbox"
-              v-model="isAgreeEvent"
-              @change="check"
-              id="isAgree"
-              name="isAgree"
-              checked
-            />
-            <label for="isAgree" class="relative text-sm text-[#666] px-2"
-              >已充分瞭解並同意上述《活動注意事項》
-              <span
-                v-show="isError"
-                class="absolute left-2 -bottom-5 text-red-500 text-sm"
-                >請勾選我同意《活動注意事項》</span
-              ></label
-            >
-          </div>
-
-          <Btn @click="onClickEnroll">參加活動</Btn>
+          
         </div>
       </v-card>
     </v-dialog>

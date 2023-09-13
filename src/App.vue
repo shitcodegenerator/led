@@ -18,6 +18,16 @@ const successMsg = ref("");
 const dialogType = ref("");
 const notifyDialog = ref(false);
 const modalDialog = ref(false);
+const errorDialog = ref(false);
+const errorMsg = ref('');
+
+const openErrorDialog = (msg) => {
+  errorMsg.value = msg
+  errorDialog.value = true
+  setTimeout(() => {
+    errorDialog.value = false
+  }, 1500)
+}
 
 const floatBtns = [
   {
@@ -65,10 +75,6 @@ const onClickEnroll = () => {
 };
 
 const onClickUpload = () => {
-  if (!isAgreeEvent.value) {
-    isError.value = true;
-    return;
-  }
   upload.value = false;
   successDialog.value = true;
   successMsg.value = "照片需等候主辦單位審核，審核無誤將會露出於活動頁";
@@ -143,6 +149,20 @@ window.addEventListener('scroll', handleScroll);
       </v-card>
     </v-dialog>
 
+      <!-- 出錯 -->
+      <v-dialog offset="0" v-show="errorDialog" v-model="errorDialog" class="relative" width="auto">
+      <v-card class="rounded-lg overflow-visible relative overflow-auto">
+        <div class="w-[90vw] text-center flex items-center justify-center flex-col  sm:w-[300px] relative p-10 ">
+          <svg class="text-primary w-[100px] h-[100px] mx-auto fill-[#f1ac52]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"></path></svg>
+          <p class="mt-2 font-bold">{{ errorMsg  }}</p>
+
+          <!-- <Btn @click="errorDialog = false">確定</Btn> -->
+        </div>
+      </v-card>
+    </v-dialog>
+
+    
+
     <!-- 報名 -->
     <v-dialog offset="200" v-model="dialog" class="relative" width="auto">
       <v-card class="rounded-lg overflow-visible relative overflow-auto">
@@ -154,7 +174,7 @@ window.addEventListener('scroll', handleScroll);
             X
           </div>
 
-          <Enroll @onClickEnroll="onClickEnroll" />
+          <Enroll @onClickEnroll="onClickEnroll" @openErrorDialog="openErrorDialog" />
 
           
         </div>
@@ -172,28 +192,11 @@ window.addEventListener('scroll', handleScroll);
             X
           </div>
 
-          <Upload />
+          <Upload @onClickUpload="onClickUpload" @openErrorDialog="openErrorDialog" />
 
-          <div class="flex items-center flex-row mb-10">
-            <input
-              type="checkbox"
-              v-model="isAgreeEvent"
-              @change="check"
-              id="isAgree"
-              name="isAgree"
-              checked
-            />
-            <label for="isAgree" class="relative text-sm text-[#666] px-2"
-              >已充分瞭解並同意上述《活動注意事項》
-              <span
-                v-show="isError"
-                class="absolute left-2 -bottom-5 text-red-500 text-sm"
-                >請勾選我同意《活動注意事項》</span
-              ></label
-            >
-          </div>
+          
 
-          <Btn @click="onClickUpload">上傳抽獎</Btn>
+          
         </div>
       </v-card>
     </v-dialog>

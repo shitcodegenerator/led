@@ -19,7 +19,7 @@ const form = ref([
     },
     placeholder: "請輸入真實姓名",
     errorMsg: '請輸入真實姓名',
-    maxlength: 10,
+    maxlength: 20,
     isError: false
   },
   {
@@ -73,7 +73,7 @@ const form = ref([
     rules: (value) => {
       return value !== ''
     },
-    placeholder: "",
+    placeholder: "請輸入真實姓名",
     errorMsg: '請輸入收件者真實姓名',
     isError: false
   },
@@ -87,6 +87,7 @@ const form = ref([
       const regex = /^09\d{8}$/
       return regex.test(value)
     },
+    placeholder: "請輸入收件者手機",
     errorMsg: '請輸入符合格式的手機號碼(ex:0912345678)',
     isError: false
   },
@@ -99,7 +100,7 @@ const form = ref([
     rules: (value) => {
       return value !== ''
     },
-    placeholder: "（請註明清楚樓層等詳細地址）",
+    placeholder: "請註明清楚樓層等詳細地址",
     errorMsg: '請輸入完整地址',
     isError: false
   },
@@ -164,10 +165,10 @@ watch(() => isTheSame.value, (same) => {
     <div v-for="(i, index) in form" class="flex sm:flex-row flex-col gap-1 sm:gap-4 
 items-start sm:items-center">
       <label v-if="i.type !== 'checkbox'" class="text-[#666666] flex-1">{{ i.label }}</label>
-      <div v-if="i.type !== 'checkbox'" class="relative flex-1 sm:flex-[2]">
+      <div v-if="i.type !== 'checkbox'" class="relative w-full sm:flex-[2]">
         <input class="input" :maxlength="i.maxlength" :disabled="index > 2 && isTheSame" @input="validateField(index)" v-if="i.type !== 'checkbox'"
           v-model="i.value" :placeholder="i.placeholder" :type="i.type ?? 'text'" />
-        <div class="absolute -bottom-4 text-xs text-red-500" v-show="i.isError">{{ i.errorMsg}}</div>
+        <div class="block sm:absolute -bottom-4 text-xs text-red-500" v-show="i.isError">{{ i.errorMsg}}</div>
       </div>
       <div v-if="i.type === 'checkbox'" class="gap-2 flex flex-row items-center justify-center self-start">
         <input class="checkbox" v-model="isTheSame" :placeholder="i.placeholder" :type="i.type ?? 'text'" />
@@ -186,7 +187,7 @@ items-start sm:items-center">
         喜光護眼小博士參加年齡建議參加為5歲以上至國小學齡兒童。
         <p>活動期間：2023/10/01 00:00 ～ 2024/1/03 23:59。</p>
         活動共分三個階段，每位報名者僅限參加其中一個階段活動，每階段報名數量有限，將依報名順序而定。
-        得獎名單將於
+        得獎名單將於<br/>
         2023/10/31、2023/11/30、2024/01/03，於此活動頁中公布得獎者，得獎者須在公布得獎名單後，10個工作日內「自行聯繫」主辦單位：eyeprotector@sylstar.com.tw，並提供「參加的活動名稱」、「得獎人真實姓名」、「手機電話」、「獎品收件地址(含郵遞區號)」等相關個人資料驗證得獎資格，以利後續獎品寄送領取及聯繫。
         得獎者領獎注意事項：依中華民國稅法規定，中獎金額價值累計
         NT$1,000(含)以上者，需提供身份證正反面影本，以利申報中獎扣繳憑單，提供後始能領取獎項。獎項金額超過新臺幣2萬元者，本國人及外籍人士(住滿183天)需負擔10％機會中獎稅；外籍人士(居住未滿183天)不論得獎人中獎金額，須就中獎金額代扣20%機會中獎稅，繳完稅後始能領取獎項。
@@ -216,7 +217,7 @@ label:not(.checkbox)::before {
 }
 
 .input:not(.checkbox) {
-  @apply border pl-4 border-[#d9d9d9] rounded-sm h-9 min-w-[208px] border-solid sm:w-auto w-full sm:py-0 py-2 px-2;
+  @apply border pl-4 border-[#d9d9d9] rounded-sm h-9 min-w-[208px] border-solid sm:w-full w-full sm:py-0 py-2 px-2;
 
   &:disabled {
     background: #ececec;

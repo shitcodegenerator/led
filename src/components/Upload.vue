@@ -176,7 +176,7 @@ label:not(.checkbox)::before {
 }
 
 .input:not(.checkbox) {
-  @apply w-full border pl-4 border-[#d9d9d9] rounded-sm h-20 sm:h-9 min-w-[208px] border-solid w-full sm:py-0 py-2;
+  @apply w-full border pl-4 border-[#d9d9d9] rounded-sm h-9  min-w-[208px] border-solid w-full sm:py-0 py-2;
 
   &:disabled {
     background: #ececec;

@@ -186,7 +186,7 @@ window.addEventListener('scroll', handleScroll);
       <v-card class="rounded-lg overflow-visible relative overflow-auto">
         <div class="w-[90vw] sm:w-[600px] relative p-10 h-[95vh] sm:max-h-[80vh]">
           <div
-            @click="dialog = false"
+            @click="upload = false"
             class="cursor-pointer absolute rounded-full w-8 h-8 flex items-center justify-center z-10 bg-[#ef5350] text-white -right-4 -top-4 left-[unset]"
           >
             X

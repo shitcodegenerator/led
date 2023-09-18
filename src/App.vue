@@ -1,10 +1,8 @@
 <script setup>
 import { reactive, onMounted, ref } from "vue";
-import Title from "./components/Title.vue";
 import Btn from "./components/Btn.vue";
 import "vue3-carousel/dist/carousel.css";
-import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
-import scrollReveal from "scrollreveal";
+import { Carousel, Slide } from "vue3-carousel";
 import Steps from "./components/Steps.vue";
 import Intro from "./components/Intro.vue";
 import Enroll from "./components/Enroll.vue";

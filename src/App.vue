@@ -6,11 +6,15 @@ import "vue3-carousel/dist/carousel.css";
 import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
 import scrollReveal from "scrollreveal";
 import Steps from "./components/Steps.vue";
+import Intro from "./components/Intro.vue";
 import Enroll from "./components/Enroll.vue";
 import Upload from "./components/Upload.vue";
 import Footer from "./components/Footer.vue";
+import http from "./http";
 import Notify from "./components/Notify.vue";
+import logo from "./assets/sylstarlogo.png";
 
+const showLoading = ref(false);
 const dialog = ref(false);
 const upload = ref(false);
 const successDialog = ref(false);
@@ -19,15 +23,15 @@ const dialogType = ref("");
 const notifyDialog = ref(false);
 const modalDialog = ref(false);
 const errorDialog = ref(false);
-const errorMsg = ref('');
+const errorMsg = ref("");
 
 const openErrorDialog = (msg) => {
-  errorMsg.value = msg
-  errorDialog.value = true
+  errorMsg.value = msg;
+  errorDialog.value = true;
   setTimeout(() => {
-    errorDialog.value = false
-  }, 1500)
-}
+    errorDialog.value = false;
+  }, 1500);
+};
 
 const floatBtns = [
   {
@@ -63,44 +67,76 @@ const onBtnClick = (type) => {
   }
 };
 
-const isAgreeEvent = ref(true);
-const isError = ref(false);
+const photos = ref([]);
 
-const onClickEnroll = () => {
-  console.log('click')
+const getPhotos = async () => {
+  try {
+    const res = await http.get(`https://ledbackend.vercel.app/getPhoto?page=1&size=10`);
+    photos.value = res.data.data.data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+onMounted(() => {
+  getPhotos();
+});
+
+const onClickEnroll = async (data) => {
+  showLoading.value = true;
+  try {
+    // await http.post("https://ledbackend.vercel.app/enroll", data);
+    await http.post('https://ledbackend.vercel.app/enroll', data)
+    showLoading.value = false;
+  } catch (err) {
+    showLoading.value = false;
+    openErrorDialog(err?.data?.message ?? "不明錯誤，請聯繫活動主辦單位。");
+    return;
+  }
   dialog.value = false;
   successDialog.value = true;
   successMsg.value =
     "您已報名喜光護眼小博士活動，請等候主辦單位與您聯繫。<br>並請在收到活動道具後，於2023/10/27前上傳活動照片。";
 };
 
-const onClickUpload = () => {
+const onClickUpload = async (data) => {
+  showLoading.value = true;
+  try {
+    await http.post(
+      `https://ledbackend.vercel.app/upload?mobile=${data.mobile}&doctor_name=${data.doctor_name}`,
+      {
+        file: data.file,
+      }
+    );
+    showLoading.value = false;
+  } catch (err) {
+    showLoading.value = false;
+    openErrorDialog(err?.data?.message ?? "不明錯誤，請聯繫活動主辦單位。");
+    return;
+  }
   upload.value = false;
   successDialog.value = true;
   successMsg.value = "照片需等候主辦單位審核，審核無誤將會露出於活動頁";
 };
-
-const check = () => {
-  if (isAgreeEvent.value) {
-    isError.value = false;
-  }
+const modalPhoto = ref();
+const modalName = ref('');
+const onClickModal = (photoUrl, name) => {
+  modalPhoto.value = photoUrl;
+  modalName.value = name;
+  modalDialog.value = true;
 };
 
-const onClickModal = (i) => {
-  modalDialog.value = true
-}
+const floatClass = ref("");
+const isScrolling = ref(false);
 
-const floatClass = ref('')
-const isScrolling = ref(false)
-
-window.addEventListener('scroll', function() {
+window.addEventListener("scroll", function () {
   var scrollPosition = window.scrollY || window.pageYOffset;
 
   if (scrollPosition > 0) {
-    floatClass.value = 'sm:opacity-20'
-    isScrolling.value = true
+    floatClass.value = "sm:opacity-20";
+    isScrolling.value = true;
   } else {
-    floatClass.value = ''
+    floatClass.value = "";
   }
 });
 
@@ -110,19 +146,52 @@ function handleScroll() {
   var scrollPosition = window.scrollY || window.pageYOffset;
 
   if (scrollPosition > lastScrollPosition.value) {
-    floatClass.value = 'opacity-20'
+    floatClass.value = "opacity-20";
   } else {
-    floatClass.value = ''
+    floatClass.value = "";
   }
 
   lastScrollPosition.value = scrollPosition;
 }
 
-window.addEventListener('scroll', handleScroll);
+window.addEventListener("scroll", handleScroll);
 </script>
 
 <template>
   <div>
+    <a
+      href="https://www.sylstarled.com.tw/V2/Login/Index/?rt=https%3a%2f%2fwww.sylstarled.com.tw%2fv2%2fVipMember%2fProfile&unLoginId=ba311df0-1253-4f60-94d4-44e9e68b3760&officialShopId=34501&reason=notlogin&authRedirectType=Default#/"
+      class="bg-[#24b554] w-full block py-[7px] text-sm"
+      ><span class="text-[#ffffff] text-[13px]">
+        加入會員｜官方Line 最高再領$250購物金🎁<i
+          style="
+            text-decoration: none;
+            vertical-align: middle;
+            margin: -3px 0 0 8px;
+            font-size: 12px;
+            font-weight: 600;
+          "
+          class="icon icon-slim-arrow-right"
+        ></i></span
+    ></a>
+
+    <Teleport to="body">
+    <div
+      v-show="showLoading"
+      class="fixed top-0 left-0 w-full h-full z-[99999] bg-gray-500 flex flex-col items-center justify-center"
+    >
+      <v-progress-circular
+        :width="3"
+        :color="'white'"
+        indeterminate
+        class="z-10"
+        :size="100"
+      ></v-progress-circular>
+      <div class="text-white z-10 pt-6 leading-loose">處理中請稍候</div>
+      <div class="bg-black opacity-50 absolute top-0 w-full h-full"></div>
+    </div>
+  </Teleport>
+
     <!-- FLOAT BTNS -->
     <div
       class="fixed top-1/4 gap-4 right-1 sm:right-10 z-10 flex items-center flex-col justify-center"
@@ -141,7 +210,9 @@ window.addEventListener('scroll', handleScroll);
     <!-- 注意事項 -->
     <v-dialog offset="200" v-model="notifyDialog" class="relative" width="auto">
       <v-card class="rounded-lg overflow-visible relative overflow-auto">
-        <div class="w-[90vw] sm:w-[600px] relative p-10 h-[95vh] sm:max-h-[80vh]">
+        <div
+          class="w-[90vw] sm:w-[600px] relative p-10 h-[95vh] sm:max-h-[80vh]"
+        >
           <Notify />
 
           <Btn @click="notifyDialog = false">確定</Btn>
@@ -149,24 +220,34 @@ window.addEventListener('scroll', handleScroll);
       </v-card>
     </v-dialog>
 
-      <!-- 出錯 -->
-      <v-dialog offset="0" v-show="errorDialog" v-model="errorDialog" class="relative" width="auto">
+    <!-- 出錯 -->
+    <v-dialog v-model="errorDialog" class="relative" width="auto">
       <v-card class="rounded-lg overflow-visible relative overflow-auto">
-        <div class="w-[90vw] text-center flex items-center justify-center flex-col  sm:w-[300px] relative p-10 ">
-          <svg class="text-primary w-[100px] h-[100px] mx-auto fill-[#f1ac52]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"></path></svg>
-          <p class="mt-2 font-bold">{{ errorMsg  }}</p>
+        <div
+          class="w-[90vw] text-center flex items-center justify-center flex-col sm:w-[300px] relative p-10"
+        >
+          <svg
+            class="text-primary w-[100px] h-[100px] mx-auto fill-[#f1ac52]"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            role="img"
+            aria-hidden="true"
+          >
+            <path d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"></path>
+          </svg>
+          <p class="mt-2 font-bold">{{ errorMsg }}</p>
 
           <!-- <Btn @click="errorDialog = false">確定</Btn> -->
         </div>
       </v-card>
     </v-dialog>
 
-    
-
     <!-- 報名 -->
     <v-dialog offset="200" v-model="dialog" class="relative" width="auto">
       <v-card class="rounded-lg overflow-visible relative overflow-auto">
-        <div class="w-[90vw] sm:w-[600px] relative p-10 h-[95vh] sm:max-h-[80vh]">
+        <div
+          class="w-[90vw] sm:w-[600px] relative p-10 h-[95vh] sm:max-h-[80vh]"
+        >
           <div
             @click="dialog = false"
             class="cursor-pointer absolute rounded-full w-8 h-8 flex items-center justify-center z-10 bg-[#ef5350] text-white -right-4 -top-4 left-[unset]"
@@ -174,9 +255,7 @@ window.addEventListener('scroll', handleScroll);
             X
           </div>
 
-          <Enroll @onClickEnroll="onClickEnroll" @openErrorDialog="openErrorDialog" />
-
-          
+          <Enroll @onClickEnroll="onClickEnroll" />
         </div>
       </v-card>
     </v-dialog>
@@ -184,7 +263,9 @@ window.addEventListener('scroll', handleScroll);
     <!-- 上傳照片 -->
     <v-dialog offset="200" v-model="upload" class="relative" width="auto">
       <v-card class="rounded-lg overflow-visible relative overflow-auto">
-        <div class="w-[90vw] sm:w-[600px] relative p-10 h-[95vh] sm:max-h-[80vh]">
+        <div
+          class="w-[90vw] sm:w-[600px] relative p-10 h-[95vh] sm:max-h-[80vh]"
+        >
           <div
             @click="upload = false"
             class="cursor-pointer absolute rounded-full w-8 h-8 flex items-center justify-center z-10 bg-[#ef5350] text-white -right-4 -top-4 left-[unset]"
@@ -192,11 +273,10 @@ window.addEventListener('scroll', handleScroll);
             X
           </div>
 
-          <Upload @onClickUpload="onClickUpload" @openErrorDialog="openErrorDialog" />
-
-          
-
-          
+          <Upload
+            @onClickUpload="onClickUpload"
+            @openErrorDialog="openErrorDialog"
+          />
         </div>
       </v-card>
     </v-dialog>
@@ -224,33 +304,30 @@ window.addEventListener('scroll', handleScroll);
     </v-dialog>
 
     <!-- 照片 -->
-    <v-dialog
-      offset="200"
-      v-model="modalDialog"
-      class="relative"
-      width="auto"
-    >
+    <v-dialog offset="200" v-model="modalDialog" class="relative" width="auto">
       <v-card class="rounded-lg overflow-visible relative overflow-auto">
         <div
-            @click="modalDialog = false"
-            class="cursor-pointer absolute rounded-full w-8 h-8 flex items-center justify-center z-10 bg-[#ef5350] text-white -right-4 -top-4 left-[unset]"
-          >
-            X
-          </div>
-        <div class="w-[90vw] sm:w-[600px] relative p-10 h-[65vh] sm:max-h-[80vh]">
+          @click="modalDialog = false"
+          class="cursor-pointer absolute rounded-full w-8 h-8 flex items-center justify-center z-10 bg-[#ef5350] text-white -right-4 -top-4 left-[unset]"
+        >
+          X
+        </div>
+        <div
+          class="w-[90vw] sm:w-[600px] relative p-10 h-[65vh] sm:max-h-[80vh]"
+        >
           <div
-          class="h-[40vh] aspect-[3/4] mx-auto bg-cover bg-center"
-          style="
-            background-image: url('https://lh3.google.com/u/0/d/1_JeJjpqN5N3Y72dHIGsm9IiKJyYBLD-Y=w2778-h1834-iv1');
-          "
-        ></div>
-        <div class="mx-auto w-full text-center font-bold my-10">護眼小博士：{{ '花枝丸' }}</div>
+            class="h-[40vh] aspect-[3/4] mx-auto bg-cover bg-center"
+            :style="{ backgroundImage: 'url(' + modalPhoto + ')' }"
+          ></div>
+          <div class="mx-auto w-full text-center font-bold my-10">
+            護眼小博士：{{ modalName }}
+          </div>
           <Btn @click="modalDialog = false">確定</Btn>
         </div>
       </v-card>
     </v-dialog>
 
-    <Carousel  :autoplay="2000" :wrapAround="true">
+    <Carousel :autoplay="3000" :wrapAround="true">
       <Slide :key="2">
         <div class="carousel__item carousel__item--first">
           <img src="./assets/banner_1.webp" />
@@ -263,40 +340,61 @@ window.addEventListener('scroll', handleScroll);
       </Slide>
     </Carousel>
 
+    <Intro />
     <Steps />
 
-    <div class="flex flex-row items-center justify-center mx-auto gap-5 sm:gap-10 py-10 sm:py-20 border-t border-primary border-dashed">
+    <div
+      class="flex flex-row items-center justify-center mx-auto gap-5 sm:gap-10 py-10 sm:py-20 border-t border-primary border-dashed"
+    >
       <img src="./assets/photo.svg" class="w-10 sm:w-20" />
-      <h2 class="text-3xl sm:text-4xl font-bold text-primary">第一階段 喜光護眼小博士</h2>
+      <h2 class="text-3xl sm:text-4xl font-bold text-primary">
+        第一階段 喜光護眼小博士
+      </h2>
     </div>
 
     <!-- 護眼小博士 -->
-    <div class="grid grid-cols-2 sm:px-0 px-4 sm:grid-cols-4 gap-8 max-w-[1180px] mx-auto">
+    <div
+      v-if="photos.length"
+      class="grid grid-cols-2 sm:px-0 px-4 sm:grid-cols-4 gap-8 max-w-[1180px] mx-auto"
+    >
       <div
-      @click="onClickModal"
         class="flex flex-col cursor-pointer hover:shadow-lg hover:scale-[1.05] transition duration-300 gap-4 items-center justify-center border border-[#555] rounded"
-        v-for="i in 20"
+        v-for="i in photos"
+        @click="onClickModal(i.photo, i.doctor_name)"
       >
         <div
           class="w-full aspect-[3/4] bg-cover bg-center"
-          style="
-            background-image: url('https://lh3.google.com/u/0/d/1_JeJjpqN5N3Y72dHIGsm9IiKJyYBLD-Y=w2778-h1834-iv1');
-          "
+          :style="{ backgroundImage: 'url(' + i.photo + ')' }"
         ></div>
-        <div class="flex flex-col w-full gap-4 items-center justify-center px-4">
-          <span class="font-bold">花枝丸小博士</span>
-        <div class="gap-2  text-gray bg-[#d9d9d9] mb-6  w-full rounded py-2 flex items-center justify-center">
-          <img src="./assets/eye.svg" class="w-5"/>
-          查看圖片</div>
+        <div
+          class="flex flex-col w-full gap-4 items-center justify-center px-4"
+        >
+          <span class="font-bold">{{ i.doctor_name }}</span>
+          <div
+            class="gap-2 text-gray bg-[#d9d9d9] mb-6 w-full rounded py-2 flex items-center justify-center"
+          >
+            <img src="./assets/eye.svg" class="w-5" />
+            查看圖片
+          </div>
         </div>
       </div>
     </div>
 
-      <div class="w-full bg-[#efefef] flex flex-row items-center justify-center mt-20">
+    <div
+      class="w-full bg-[#efefef] items-center justify-center mt-20 pb-20"
+    >
+    <div class="flex flex-row mx-auto items-center justify-center py-10">
+
       <img src="./assets/star.png" class="w-10 sm:w-14" />
       <h2 class="text-3xl sm:text-4xl font-bold text-primary">活動贊助商</h2>
     </div>
 
+      <div class="grid grid-cols grid-cols-4 max-w-[1180px] mx-auto gap-8">
+      <img :src="logo" class="max-h-[40px]"   v-for="i in 20"/>
+    </div>
+
+    </div>
+   
     <Footer />
   </div>
 </template>

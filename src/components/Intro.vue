@@ -1,8 +1,10 @@
 <script setup>
+import Title from "./Title.vue";
+
 import onclick from '../assets/onclick.svg'
 import call from '../assets/call.svg'
 import gift from '../assets/gift.svg'
-import eyetest from '../assets/eyetest.png'
+import pic from '../assets/pic.svg'
 import upload from '../assets/upload.svg'
 import fb from '../assets/fbig.svg'
 
@@ -26,7 +28,7 @@ const stepsCircle = [
 const images = [
 onclick,
 call,
-eyetest,
+pic,
 fb,
 upload,
 gift,
@@ -37,58 +39,21 @@ gift,
     <div
       class="flex flex-row items-center justify-center mx-auto gap-5 sm:gap-10 my-10 sm:my-20"
     >
-      <img src="../assets/event.png" class="w-10 sm:w-20" />
+      <img src="../assets/one.png" class="w-10 sm:w-20" />
       <h2 class="text-3xl sm:text-4xl font-bold text-primary">
-        活動報名步驟
+        品牌介紹
       </h2>
     </div>
-    <ul
-      class="list-disc text-left max-w-[720px] mx-auto leading-loose sm:px-0 px-8 bg-[#d5efff80] py-4 rounded"
+    <p
+      class=" text-left max-w-[720px] mx-auto leading-loose sm:px-0 px-8 py-4 "
     >
-      <li v-for="(content, index) in steps">
-        <span class="font-bold">STEP {{ index + 1 }}：</span>
-        {{ content }}
-      </li>
-    </ul>
-
-    <div
-      class="mt-20 gap-0 sm:gap-10 grid grid-cols-3 mx-auto items-center juesitfy-center"
-    >
-      <div v-for="(i, index) in stepsCircle" class="steps">
-        <div class="w-20 h-20 rounded-full ">
-          <img :src="images[index]"/>
-        </div>
-        <div class="font-bold">STEP {{ index + 1 }}</div>
-        <p class="w-3/4 text-gray sm:text-sm text-xs" v-html="i"></p>
-      </div>
-    </div>
+    喜光領導團隊擁有三十年照明專業經驗，一路走來堅持「優質好光，呵護健康」。<br />
+嚴格把關光的品質、用心研發最懂你的燈、打造舒適的用光環境。
+喜光全光譜護眼科技，專為孩子閱讀設計，避免孩子從小近視，先從環境調整。
+還有獨家PLF光濾淨技術、博物館等級高演色性、無藍光危害、防眩光、無頻閃、國際認證AA級照度，眼科院長權威推薦最安心。
+  </p>
   </div>
 
-  <div class="mt-10 bg-[#efefef] pt-10 pb-10 sm:pb-20">
-    <h2 class="text-2xl font-bold text-gray pb-10">上傳照片範例及社群連結</h2>
-
-    <div class="flex flex-row gap-8 max-w-[720px] mx-auto">
-      <div class="flex flex-col items-center gap-2 justify-center flex-1">
-        <a class="text-[#666] font-bold flex items-center gap-2" href="https://www.facebook.com/sylstarled" target="_blank">
-          <img src="../assets/fb.png" class="w-6"/>Facebook</a>
-        <img
-          class="w-3/4 rounded-md  bg-cover bg-center"
-          src="../assets/fb_ex.png"
-        />
-      </div>
-
-      <div class="flex flex-col items-center gap-2 justify-center flex-1">
-        <a class="text-[#666] font-bold flex items-center gap-2" href="https://www.instagram.com/sylstarled" target="_blank">
-          <img src="../assets/instagram.png" class="w-6"/>Instagram</a>
-        <img
-          class="w-3/4 rounded-md  bg-cover bg-center"
-          src="../assets/ig.png"
-        />
-      </div>
-
-
-    </div>
-  </div>
 </template>
 
 <style lang="scss" scoped>

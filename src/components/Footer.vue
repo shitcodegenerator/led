@@ -44,26 +44,22 @@
               </div>
             </div>
             <div class="sc-hsfzap kImATJ">
-              <ul class="social-ul">
+              <ul class="social-ul text-left mt-4 sm:mt-10 sm:,l-0 ml-10 w-20">
                 <li style="display: inline-block; margin-right: 6px">
                   <a
                     target="_blank"
+                    class="block roundedn-full h-5 w-5 overflow-hidden"
                     rel="noopener noreferrer"
                     href="https://www.facebook.com/Sylstar-103578038488762"
-                    ><i
-                      class="sc-eRsQsw dWMwJD icon icon-editor-icon_facebook_solid"
-                    ></i
-                  ></a>
+                    ><img src="../assets/fbico.png"/></a>
                 </li>
                 <li style="display: inline-block; margin-right: 6px">
                   <a
                     target="_blank"
+                    class="block roundedn-full h-5 w-5 overflow-hidden"
                     rel="noopener noreferrer"
                     href="https://line.naver.jp/ti/p/@sylstarled"
-                    ><i
-                      class="sc-eRsQsw cDXeuv icon icon-editor-icon_line_round"
-                    ></i
-                  ></a>
+                    ><img src="../assets/lineico.png"/></a>
                 </li>
               </ul>
             </div>
@@ -131,7 +127,8 @@
             <br>
             本站最佳瀏覽環境請使用Google Chrome、Firefox或Edge以上版本
           </div>
-          <div class="text-[#999] text-xs text-left">© 2021 by 喜光有限公司</div
+          <div class="text-[#999] text-xs text-left">
+            © 2021 by 喜光有限公司</div
           >
         </div>
       </div>

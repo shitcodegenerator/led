@@ -387,7 +387,7 @@ window.addEventListener("scroll", handleScroll);
       <h2 class="text-3xl sm:text-4xl font-bold text-primary">活動贊助商</h2>
     </div>
 
-      <div class="grid grid-cols grid-cols-4 max-w-[1180px] mx-auto gap-8">
+      <div class="grid grid-cols grid-cols-3 sm:grid-cols-4 max-w-[1180px] mx-auto gap-8 px-4 sm:px-0">
       <img :src="logo" class="max-h-[40px]"   v-for="i in 20"/>
     </div>
 

@@ -168,7 +168,8 @@ watch(() => isTheSame.value, (same) => {
 })
 </script>
 <template>
-  <div class="gap-6 sm:gap-4 flex flex-col mb-12 overflow-y-scroll max-h-[70vh] sm:max-h-[55vh]">
+ <div class="gap-6 sm:gap-4 flex flex-col mb-12 overflow-y-scroll h-full ">
+    <p class="text-sm -mb-4 text-red-500">*以下資訊僅供寄送與聯絡，不公開於活動頁</p>
     <div v-for="(i, index) in form" class="flex sm:flex-row flex-col gap-1 sm:gap-4 
 items-start sm:items-center">
       <label v-if="i.type !== 'checkbox'" class="text-[#666666] flex-1">{{ i.label }}</label>
@@ -193,14 +194,14 @@ items-start sm:items-center">
         <Notification />
       </div>
     </div>
-  </div>
-  <div class="flex items-center flex-row mb-10">
+    <div class="flex items-center flex-row mb-10">
     <input type="checkbox" v-model="isAgreeEvent" id="isAgree" name="isAgree" checked />
     <label for="isAgree" class="relative text-sm text-[#666] px-2">已充分瞭解並同意上述《活動注意事項》
       <span v-show="isError" class="absolute left-2 -bottom-5 text-red-500 text-sm">請勾選我同意《活動注意事項》</span></label>
   </div>
 
   <Btn @click="onClickEnroll">報名活動</Btn>
+  </div>
 </template>
 
 <style lang="scss" scoped>

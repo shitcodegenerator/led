@@ -33,7 +33,7 @@ const form = ref([
     errorMsg: '請輸入護眼小博士暱稱',
     isError: false,
     maxlength: 8,
-    placeholder: "小博士暱稱將會公開於活動頁，以供識別",
+    placeholder: "暱稱將公開於活動頁供識別",
   },
   {
     label: "上傳照片",
@@ -117,7 +117,7 @@ const validateField = (index) => {
 }
 </script>
 <template>
-  <div class="gap-4 flex flex-col mb-12 overflow-y-scroll max-h-[70vh] sm:max-h-[55vh]">
+  <div class="gap-4 flex flex-col mb-12 overflow-y-scroll h-full">
     <p class="text-sm -mb-4 text-red-500">*請填寫與報名時相同手機號</p>
     <div v-for="(i, index) in form" class="flex sm:flex-row flex-col gap-1 sm:gap-4 
 items-start sm:items-center">
@@ -153,15 +153,17 @@ items-start sm:items-center">
         <Notification />
       </div>
     </div>
-  </div>
 
-  <div class="flex items-center flex-row mb-10">
+    <div class="flex items-center flex-row mb-10">
     <input type="checkbox" v-model="isAgreeEvent" @change="check" id="isAgree" name="isAgree" checked />
     <label for="isAgree" class="relative text-sm text-[#666] px-2">已充分瞭解並同意上述《活動注意事項》
       <span v-show="isError" class="absolute left-2 -bottom-5 text-red-500 text-sm">請勾選我同意《活動注意事項》</span></label>
   </div>
 
   <Btn @click="onClickUpload">上傳抽獎</Btn>
+  </div>
+
+
 </template>
 
 <style lang="scss" scoped>

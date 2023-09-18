@@ -6,7 +6,7 @@ import Notification from './Notification.vue';
 
         <div class="flex flex-col items-center gap-4  overflow-y-scroll max-h-[55vh] mb-10">
           <h2 class="font-bold text-2xl">活動注意事項</h2>
-        <div class="px-4 leading-6 py-4 text-sm text-gray">
+        <div class="px-4 leading-6 py-4 text-xs sm:text-sm text-gray">
           <Notification />
         </div>
         </div>

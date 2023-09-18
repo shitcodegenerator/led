@@ -3,7 +3,7 @@
       <div class="max-w-[1180px] mx-auto">
         <div class="flex flex-col sm:flex-row gap-10">
 
-          <div class="sc-fWRKtz fVwyMs">
+          <div class="sm:flex hidden sc-fWRKtz fVwyMs">
             <div class="goya-facebook-fans">
               <div
                 class="fb-page fb_iframe_widget"

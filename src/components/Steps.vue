@@ -43,7 +43,7 @@ gift,
       </h2>
     </div>
     <ul
-      class="list-disc text-left max-w-[720px] mx-auto leading-loose sm:px-0 px-8 bg-[#d5efff80] py-4 rounded"
+      class="list-disc text-left max-w-[720px] mx-auto leading-loose sm:px-0 px-8 bg-[#d5efff80] py-4 rounded text-sm sm:text-base"
     >
       <li v-for="(content, index) in steps">
         <span class="font-bold">STEP {{ index + 1 }}：</span>

@@ -366,7 +366,7 @@ window.addEventListener("scroll", handleScroll);
           :style="{ backgroundImage: 'url(' + i.photo + ')' }"
         ></div>
         <div
-          class="flex flex-col w-full gap-4 items-center justify-center px-4"
+          class="flex flex-col w-full gap-4 items-center justify-center text-sm sm:text-base px-4"
         >
           <span class="font-bold">{{ i.doctor_name }}</span>
           <div

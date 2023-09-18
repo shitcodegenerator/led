@@ -3,7 +3,7 @@
       <div class="max-w-[1180px] mx-auto">
         <div class="flex flex-col sm:flex-row gap-10">
 
-          <div class="sm:flex hidden sc-fWRKtz fVwyMs">
+          <div class="sm:block hidden sc-fWRKtz fVwyMs">
             <div class="goya-facebook-fans">
               <div
                 class="fb-page fb_iframe_widget"
@@ -44,7 +44,7 @@
               </div>
             </div>
             <div class="sc-hsfzap kImATJ">
-              <ul class="social-ul text-left mt-4 sm:mt-10 sm:,l-0 ml-10 w-20">
+              <ul class="social-ul text-left mt-4 sm:mt-10  ml-10 sm:ml-0 w-20">
                 <li style="display: inline-block; margin-right: 6px">
                   <a
                     target="_blank"
@@ -61,11 +61,19 @@
                     href="https://line.naver.jp/ti/p/@sylstarled"
                     ><img src="../assets/lineico.png"/></a>
                 </li>
+                <li style="display: inline-block; margin-right: 6px">
+                  <a
+                    target="_blank"
+                    class="block roundedn-full h-5 w-5 overflow-hidden"
+                    rel="noopener noreferrer"
+                    href="https://www.instagram.com/sylstarled/"
+                    ><img src="../assets/instagram.png"/></a>
+                </li>
               </ul>
             </div>
           </div>
 
-          <div class="flex flex-row gap-10 sm:mx-0 mx-auto">
+          <div class="sm:flex hidden flex-row gap-10 sm:mx-0 mx-auto">
             <div class="sc-fWRKtz jhCSXH">
               <div class="text-[#4a4e5c] text-left font-bold mb-4 text-left">關於我們</div>
               <div class="footer-menu-content text-left">
@@ -121,13 +129,21 @@
             </div>
           </div>
         </div>
+
+        <ul class="sm:hidden mx-auto text-center justify-center gap-4 flex sc-fqTAHg jXaqZL"><li class="sc-loyRtV gQnjoV"><a href="/v2/Official/BrandStory" class="sc-loIdfG text-[#666] font-[13px]">品牌故事</a></li><li class="sc-loyRtV gQnjoV"><a href="/Shop/Introduce/34501?t=2" class="sc-loIdfG text-[#666] font-[13px]">購物說明</a></li><li class="sc-loyRtV gQnjoV"><a href="/Question/QuestionInsert/0?sId=34501" class="sc-loIdfG text-[#666] font-[13px]">客服留言</a></li></ul>
         <div class="max-w-[1180px] mx-auto sm:mt-0 mt-10">
-          <div class="text-[#999] text-xs text-right">
+          <div class="sm:block hidden text-[#999] text-xs text-right">
             若接到可疑電話，請洽詢165反詐騙專線
             <br>
             本站最佳瀏覽環境請使用Google Chrome、Firefox或Edge以上版本
           </div>
-          <div class="text-[#999] text-xs text-left">
+          <div class="sm:hidden block text-[#999] text-xs text-center">
+            若接到可疑電話，請洽詢165反詐騙專線
+          </div>
+          <div class="sm:hidden block text-[#999] text-xs text-center">
+            © 2021 by 喜光有限公司</div
+          >
+          <div class="sm:block hidden text-[#999] text-xs text-left">
             © 2021 by 喜光有限公司</div
           >
         </div>

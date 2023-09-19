@@ -153,6 +153,10 @@ function handleScroll() {
 }
 
 window.addEventListener("scroll", handleScroll);
+
+const fontFamily = {
+  fontFamily: `"Lucida Grande","Helvetica","Arial","微軟正黑體修正","微軟正黑體",sans-serif`
+}
 </script>
 
 <template>
@@ -161,7 +165,7 @@ window.addEventListener("scroll", handleScroll);
       href="https://www.sylstarled.com.tw/V2/Login/Index/?rt=https%3a%2f%2fwww.sylstarled.com.tw%2fv2%2fVipMember%2fProfile&unLoginId=ba311df0-1253-4f60-94d4-44e9e68b3760&officialShopId=34501&reason=notlogin&authRedirectType=Default#/"
       target="_blank"
       class="bg-[#24b554] w-full block py-[7px] text-sm"
-      ><span class="text-[#ffffff] text-[13px]">
+      ><span class="text-[#ffffff] text-[13px]" :style="fontFamily">
         加入會員｜官方Line 最高再領$250購物金🎁<i
           style="
             text-decoration: none;
@@ -347,7 +351,7 @@ window.addEventListener("scroll", handleScroll);
     >
       <img src="./assets/photo.svg" class="w-10 sm:w-20" />
       <h2 class="text-3xl sm:text-4xl font-bold text-primary">
-        第一階段 喜光護眼小博士
+        第一階段 護眼小博士
       </h2>
     </div>
 

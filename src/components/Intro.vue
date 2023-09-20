@@ -40,8 +40,8 @@ gift,
       class="flex flex-row items-center justify-center mx-auto gap-5 sm:gap-10 my-10 sm:my-20"
     >
       <img src="../assets/one.png" class="w-10 sm:w-20" />
-      <h2 class="text-3xl sm:text-4xl font-bold text-primary">
-        品牌介紹
+      <h2 class="text-2xl sm:text-4xl font-bold text-primary">
+        兒童護眼檯燈第一品牌
       </h2>
     </div>
     <p

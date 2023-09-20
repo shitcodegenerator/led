@@ -33,7 +33,7 @@ const form = ref([
     errorMsg: '請輸入護眼小博士暱稱',
     isError: false,
     maxlength: 8,
-    placeholder: "暱稱將公開於活動頁供識別",
+    placeholder: "至多8個字，將公開於活動頁供識別",
   },
   {
     label: "上傳照片",
@@ -128,7 +128,7 @@ items-start sm:items-center">
         <div class="block sm:absolute -bottom-4 text-xs text-red-500" v-show="i.isError">{{ i.errorMsg }}</div>
       </div>
 
-      <div v-if="i.type == 'photo'" class="flex sm:flex-row flex-col gap-4">
+      <div v-if="i.type == 'photo'" class="flex  flex-col gap-4">
         <label class="text-[#666666] flex-1 w-[162px]">{{ i.label }}</label>
         <div
           class="flex flex-col relative border-[#d9d9d9] border rounded h-[135px] w-[208px] flex items-center justify-center">
@@ -137,7 +137,8 @@ items-start sm:items-center">
           <v-file-input accept="image/*" class="file" v-model="i.value" type="file" @change="onFileChange" />
         </div>
 
-        <img :src="preview" class="w-24" />
+        <!-- <img :src="preview" class="w-24" /> -->
+        <span v-if="preview" class="text-green-500 font-bold -mt-4 text-sm">上傳成功 {{  }}</span>
       </div>
     </div>
 

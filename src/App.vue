@@ -13,6 +13,7 @@ import Notify from "./components/Notify.vue";
 import logo from "./assets/sylstarlogo.png";
 
 const showLoading = ref(false);
+const winnersDialog = ref(false);
 const dialog = ref(false);
 const upload = ref(false);
 const successDialog = ref(false);
@@ -40,10 +41,10 @@ const floatBtns = [
     title: "上傳照片",
     value: "upload",
   },
-  // {
-  //   title: "得獎名單",
-  //   value: "winners",
-  // },
+  {
+    title: "得獎名單",
+    value: "winners",
+  },
   {
     title: "注意事項",
     value: "notification",
@@ -61,6 +62,9 @@ const onBtnClick = (type) => {
       break;
     case "notification":
       notifyDialog.value = true;
+      break;
+    case "winners":
+      winnersDialog.value = true;
       break;
   }
 };
@@ -94,7 +98,7 @@ const onClickEnroll = async (data) => {
   dialog.value = false;
   successDialog.value = true;
   successMsg.value =
-    "您已報名喜光護眼小博士活動，請等候主辦單位與您聯繫。<br>並請在收到活動道具後，於2023/10/27前上傳活動照片。";
+    "您已報名喜光護眼小博士活動，請等候主辦單位與您電話聯繫。<br>並請在收到活動道具後，於2023/10/27前上傳活動照片。";
 };
 
 const onClickUpload = async (data) => {
@@ -253,7 +257,7 @@ const fontFamily = {
         >
           <div
             @click="dialog = false"
-            class="cursor-pointer absolute rounded-full w-8 h-8 flex items-center justify-center z-10 bg-[#ef5350] text-white -right-4 -top-4 left-[unset]"
+            class="cursor-pointer absolute rounded-full w-8 h-8 flex items-center justify-center z-10 bg-[#ef5350] text-white right-4 top-2 sm:-right-4 sm:-top-4 left-[unset]"
           >
             X
           </div>
@@ -271,7 +275,7 @@ const fontFamily = {
         >
           <div
             @click="upload = false"
-            class="cursor-pointer absolute rounded-full w-8 h-8 flex items-center justify-center z-10 bg-[#ef5350] text-white -right-4 -top-4 left-[unset]"
+            class="cursor-pointer absolute rounded-full w-8 h-8 flex items-center justify-center z-10 bg-[#ef5350] text-white right-4 top-2 sm:-right-4 sm:-top-4 left-[unset]"
           >
             X
           </div>
@@ -284,6 +288,28 @@ const fontFamily = {
       </v-card>
     </v-dialog>
 
+    <!-- winnersDialog -->
+    <v-dialog
+      offset="200"
+      v-model="winnersDialog"
+      class="relative"
+      width="auto"
+    >
+      <v-card class="rounded-lg overflow-visible relative overflow-auto">
+        <div class="w-[90vw] sm:w-[600px] relative p-10 max-h-[55vh]">
+          <div
+            class="flex flex-col items-center justify-center gap-4 mx-auto mb-10"
+          >
+            <p><span class="font-bold">第一階段獎項：</span><br/>
+1. 喜光檯燈，共＊名<br/>
+2.＊＊＊＊＊，共＊名
+</p>
+          </div>
+
+          <Btn @click="winnersDialog = false">確定</Btn>
+        </div>
+      </v-card>
+    </v-dialog>
     <!-- 成功 -->
     <v-dialog
       offset="200"
@@ -311,7 +337,7 @@ const fontFamily = {
       <v-card class="rounded-lg overflow-visible relative overflow-auto">
         <div
           @click="modalDialog = false"
-          class="cursor-pointer absolute rounded-full w-8 h-8 flex items-center justify-center z-10 bg-[#ef5350] text-white -right-4 -top-4 left-[unset]"
+          class="cursor-pointer absolute rounded-full w-8 h-8 flex items-center justify-center z-10 bg-[#ef5350] text-white right-4 top-2 sm:-right-4 sm:-top-4 left-[unset]"
         >
           X
         </div>
@@ -333,7 +359,7 @@ const fontFamily = {
     <Carousel :autoplay="3000" :wrapAround="true">
       <Slide :key="2">
         <div class="carousel__item carousel__item--first">
-          <img src="./assets/banner_1.webp" />
+          <img src="./assets/banner_1.png" />
         </div>
       </Slide>
       <Slide :key="1">
@@ -351,7 +377,7 @@ const fontFamily = {
     >
       <img src="./assets/photo.svg" class="w-10 sm:w-20" />
       <h2 class="text-3xl sm:text-4xl font-bold text-primary">
-        第一階段 護眼小博士
+        <div class="sm:flex-row flex-col flex sm:gap-2"><span>第一階段</span>護眼小博士</div>
       </h2>
     </div>
 
@@ -411,13 +437,17 @@ const fontFamily = {
 }
 
 .carousel__item {
-  // min-height: 50vh;
-  width: 100%;
+  @apply h-[300px] sm:h-[80vh];
+  max-height: 660px;
   background-color: var(--vc-clr-primary);
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow: hidden; 
+  img {
+    @apply sm:w-full w-auto h-full sm:h-auto;
+
+  }
 }
 
 .carousel__slide {

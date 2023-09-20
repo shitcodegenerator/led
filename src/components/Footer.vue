@@ -131,6 +131,34 @@
         </div>
 
         <ul class="sm:hidden mx-auto text-center justify-center gap-4 flex sc-fqTAHg jXaqZL"><li class="sc-loyRtV gQnjoV"><a href="/v2/Official/BrandStory" class="sc-loIdfG text-[#666] font-[13px]">品牌故事</a></li><li class="sc-loyRtV gQnjoV"><a href="/Shop/Introduce/34501?t=2" class="sc-loIdfG text-[#666] font-[13px]">購物說明</a></li><li class="sc-loyRtV gQnjoV"><a href="/Question/QuestionInsert/0?sId=34501" class="sc-loIdfG text-[#666] font-[13px]">客服留言</a></li></ul>
+
+        <ul class="sm:hidden social-ul text-center mt-8  w-full">
+                <li style="display: inline-block; margin-right: 18px">
+                  <a
+                    target="_blank"
+                    class="block roundedn-full h-6 w-6 overflow-hidden"
+                    rel="noopener noreferrer"
+                    href="https://www.facebook.com/Sylstar-103578038488762"
+                    ><img src="../assets/fbico.png"/></a>
+                </li>
+                <li style="display: inline-block; margin-right: 18px">
+                  <a
+                    target="_blank"
+                    class="block roundedn-full h-6 w-6 overflow-hidden"
+                    rel="noopener noreferrer"
+                    href="https://line.naver.jp/ti/p/@sylstarled"
+                    ><img src="../assets/lineico.png"/></a>
+                </li>
+                <li style="display: inline-block; margin-right: 18px">
+                  <a
+                    target="_blank"
+                    class="block roundedn-full h-6 w-6 overflow-hidden"
+                    rel="noopener noreferrer"
+                    href="https://www.instagram.com/sylstarled/"
+                    ><img src="../assets/instagram.png"/></a>
+                </li>
+              </ul>
+
         <div class="max-w-[1180px] mx-auto sm:mt-0 mt-10">
           <div class="sm:block hidden text-[#999] text-xs text-right">
             若接到可疑電話，請洽詢165反詐騙專線

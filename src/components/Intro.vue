@@ -45,7 +45,7 @@ gift,
       </h2>
     </div>
     <p
-      class=" text-left max-w-[720px] text-sm sm:text-base mx-auto leading-loose sm:px-0 px-8 py-4 "
+      class=" text-left max-w-[720px] text-sm sm:text-base mx-auto leading-loose sm:px-0 px-8 py-0 "
     >
     喜光領導團隊擁有三十年照明專業經驗，一路走來堅持「優質好光，呵護健康」。<br />
 嚴格把關光的品質、用心研發最懂你的燈、打造舒適的用光環境。

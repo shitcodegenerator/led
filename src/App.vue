@@ -359,7 +359,8 @@ const fontFamily = {
     <Carousel :autoplay="3000" :wrapAround="true">
       <Slide :key="2">
         <div class="carousel__item carousel__item--first">
-          <img src="./assets/banner_1.png" />
+          <img class="sm:block hidden" src="./assets/banner_1.png" />
+          <img class="block sm:hidden" src="./assets/banner_1_m.png" />
         </div>
       </Slide>
       <Slide :key="1">
@@ -437,7 +438,7 @@ const fontFamily = {
 }
 
 .carousel__item {
-  @apply h-[300px] sm:h-[80vh];
+  @apply h-auto sm:h-[80vh];
   max-height: 660px;
   background-color: var(--vc-clr-primary);
   display: flex;

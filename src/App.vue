@@ -421,7 +421,7 @@ const fontFamily = {
     </div>
 
       <div class="grid grid-cols grid-cols-3  max-w-[1180px] mx-auto gap-8 px-4 sm:px-0">
-      <img :src="logo" class="max-h-[40px] mx-auto"   v-for="i in 20"/>
+      <img :src="logo" class="max-h-[40px] mx-auto"   v-for="i in 3"/>
     </div>
 
     </div>

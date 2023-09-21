@@ -203,6 +203,9 @@ label:not(.checkbox)::before {
 :deep(.v-input__control) {
   @apply w-full
 }
+:deep(.v-field__input) {
+  @apply hidden;
+}
 
 .file :deep(.v-input__prepend) {
   display: none;

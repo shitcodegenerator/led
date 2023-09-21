@@ -365,7 +365,8 @@ const fontFamily = {
       </Slide>
       <Slide :key="1">
         <div class="carousel__item carousel__item--second">
-          <img src="./assets/banner_2.webp" />
+          <img class="sm:block hidden" src="./assets/banner_1.png" />
+          <img class="block sm:hidden" src="./assets/banner_1_m.png" />
         </div>
       </Slide>
     </Carousel>
@@ -377,8 +378,8 @@ const fontFamily = {
       class="flex flex-row items-center justify-center mx-auto gap-5 sm:gap-10 py-10 sm:py-20 border-t border-primary border-dashed"
     >
       <img src="./assets/photo.svg" class="w-10 sm:w-20" />
-      <h2 class="text-3xl sm:text-4xl font-bold text-primary">
-        <div class="sm:flex-row flex-col flex sm:gap-2"><span>第一階段</span>護眼小博士</div>
+      <h2 class="text-2xl sm:text-4xl font-bold text-primary">
+        <div class="sm:flex-row flex-col flex sm:gap-2 text-primary"><span class="text-primary">第一階段</span>護眼小博士</div>
       </h2>
     </div>
 
@@ -416,10 +417,10 @@ const fontFamily = {
     <div class="flex flex-row mx-auto items-center justify-center py-10">
 
       <img src="./assets/star.png" class="w-10 sm:w-14" />
-      <h2 class="text-3xl sm:text-4xl font-bold text-primary">活動贊助商</h2>
+      <h2 class="text-2xl sm:text-4xl font-bold text-primary">活動贊助商</h2>
     </div>
 
-      <div class="grid grid-cols grid-cols-3 sm:grid-cols-4 max-w-[1180px] mx-auto gap-8 px-4 sm:px-0">
+      <div class="grid grid-cols grid-cols-3  max-w-[1180px] mx-auto gap-8 px-4 sm:px-0">
       <img :src="logo" class="max-h-[40px]"   v-for="i in 20"/>
     </div>
 

@@ -38,7 +38,7 @@ gift,
       class="flex flex-row items-center justify-center mx-auto gap-5 sm:gap-10 my-10 sm:my-20"
     >
       <img src="../assets/event.png" class="w-10 sm:w-20" />
-      <h2 class="text-3xl sm:text-4xl font-bold text-primary">
+      <h2 class="text-2xl sm:text-4xl font-bold text-primary">
         活動報名步驟
       </h2>
     </div>
@@ -67,12 +67,12 @@ gift,
   <div class="mt-10 bg-[#efefef] pt-10 pb-10 sm:pb-20">
     <h2 class="text-2xl font-bold text-gray pb-10">上傳照片範例及社群連結</h2>
 
-    <div class="flex flex-row gap-8 max-w-[720px] mx-auto">
+    <div class="flex flex-row gap-2 px-5 sm:px-0 sm:gap-8 max-w-[720px] mx-auto ">
       <div class="flex flex-col items-center gap-2 justify-center flex-1">
         <a class="text-[#666] font-bold flex items-center gap-2" href="https://www.facebook.com/sylstarled" target="_blank">
           <img src="../assets/fb.png" class="w-6"/>Facebook</a>
         <img
-          class="w-3/4 rounded-md  bg-cover bg-center"
+          class="h-[200px] sm:h-[400px] rounded-md  bg-cover bg-center"
           src="../assets/fb_ex.png"
         />
       </div>
@@ -81,7 +81,7 @@ gift,
         <a class="text-[#666] font-bold flex items-center gap-2" href="https://www.instagram.com/sylstarled" target="_blank">
           <img src="../assets/instagram.png" class="w-6"/>Instagram</a>
         <img
-          class="w-3/4 rounded-md  bg-cover bg-center"
+          class="h-[200px] sm:h-[400px] rounded-md  bg-cover bg-center"
           src="../assets/ig.png"
         />
       </div>

@@ -79,17 +79,17 @@
               <div class="footer-menu-content text-left">
                 <ul class="footer-menu-content-ul">
                   <li class="footer-menu-content-li">
-                    <a href="/v2/Official/BrandStory" class="text-xs text-[#666]"
+                    <a href="https://www.sylstarled.com.tw/v2/Official/BrandStory" class="text-xs text-[#666]"
                       >品牌故事</a
                     >
                   </li>
                   <li class="footer-menu-content-li">
-                    <a href="/shop/introduce/34501?t=1" class="text-xs text-[#666]"
+                    <a href="https://www.sylstarled.com.tw/shop/introduce/34501?t=1" class="text-xs text-[#666]"
                       >商店簡介</a
                     >
                   </li>
                   <li class="footer-menu-content-li">
-                    <a href="/MyAccount/Privacy/34501" class="text-xs text-[#666]"
+                    <a href="https://www.sylstarled.com.tw/MyAccount/Privacy/34501" class="text-xs text-[#666]"
                       >隱私權及網站使用條款</a
                     >
                   </li>
@@ -101,20 +101,20 @@
               <div class="footer-menu-content">
                 <ul class="footer-menu-content-ul">
                   <li class="footer-menu-content-li  text-left">
-                    <a href="/Shop/Introduce/34501?t=2" class="text-xs  text-left text-[#666]"
+                    <a href="https://www.sylstarled.com.tw/Shop/Introduce/34501?t=2" class="text-xs  text-left text-[#666]"
                       >購物說明</a
                     >
                   </li>
                   <li class="footer-menu-content-li text-left">
                     <a
-                      href="/Question/QuestionInsert/0?sId=34501"
+                      href="https://www.sylstarled.com.tw/Question/QuestionInsert/0?sId=34501"
                       class="text-xs  text-left text-[#666]"
                       >客服留言</a
                     >
                   </li>
                   <li class="footer-menu-content-li  text-left">
                     <a
-                      href="/V2/MyAccount/VipMemberBenefits"
+                      href="https://www.sylstarled.com.tw/V2/MyAccount/VipMemberBenefits"
                       class="text-xs  text-left text-[#666]"
                       >會員權益聲明</a
                     >

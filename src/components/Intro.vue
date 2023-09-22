@@ -1,6 +1,4 @@
 <script setup>
-import Title from "./Title.vue";
-
 import onclick from '../assets/onclick.svg'
 import call from '../assets/call.svg'
 import gift from '../assets/gift.svg'

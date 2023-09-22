@@ -356,7 +356,7 @@ const fontFamily = {
       </v-card>
     </v-dialog>
 
-    <Carousel :autoplay="3000" :wrapAround="true">
+    <Carousel :autoplay="5000" :wrapAround="true">
       <Slide :key="2">
         <div class="carousel__item carousel__item--first">
           <img class="sm:block hidden" src="./assets/banner_1.png" />

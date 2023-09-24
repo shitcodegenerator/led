@@ -158,6 +158,8 @@ window.addEventListener('scroll', handleScroll);
 const timeout = ref()
 function checkActivity() {
   floatClass.value = `${floatClass.value}`
+  var scrollPosition = window.scrollY || window.pageYOffset;
+  if(scrollPosition < 50) return
   clearTimeout(timeout.value);
    timeout.value = setTimeout(function () {
     floatClass.value = `${floatClass.value} opacity-20`
@@ -367,7 +369,7 @@ const fontFamily = {
             class="h-[40vh] aspect-[3/4] mx-auto bg-cover bg-center"
             :style="{ backgroundImage: 'url(' + modalPhoto + ')' }"
           ></div>
-          <div class="mx-auto w-full text-center font-bold my-10">
+          <div class="mx-auto w-full text-center font-bold my-4 sm:my-10">
             護眼小博士：{{ modalName }}
           </div>
           <Btn @click="modalDialog = false">確定</Btn>

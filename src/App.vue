@@ -71,6 +71,19 @@ const onBtnClick = (type) => {
 
 const photos = ref([]);
 
+function debounce(func, delay = 250) {
+  let timer = null;
+ 
+  return function(...args) {
+    let context = this;
+ 
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(context, args);
+    }, delay);
+  }
+}
+
 const getPhotos = async () => {
   try {
     const res = await http.get(`https://ledbackend.vercel.app/getPhoto?page=1&size=10`);
@@ -129,34 +142,39 @@ const onClickModal = (photoUrl, name) => {
 };
 
 const floatClass = ref("");
-const isScrolling = ref(false);
-
-window.addEventListener("scroll", function () {
-  var scrollPosition = window.scrollY || window.pageYOffset;
-
-  if (scrollPosition > 0) {
-    floatClass.value = "sm:opacity-20";
-    isScrolling.value = true;
-  } else {
-    floatClass.value = "";
-  }
-});
-
-const lastScrollPosition = ref(window.scrollY || window.pageYOffset);
 
 function handleScroll() {
   var scrollPosition = window.scrollY || window.pageYOffset;
 
-  if (scrollPosition > lastScrollPosition.value) {
-    floatClass.value = "opacity-20";
+  if(scrollPosition > 50) {
+    floatClass.value = 'flex-col top-[10vh] right-[16px] left-[unset] -translate-x-0'
   } else {
-    floatClass.value = "";
+    floatClass.value = 'flex-row top-[500px] right-[unset] left-1/2 -translate-x-1/2'
   }
 
-  lastScrollPosition.value = scrollPosition;
 }
 
-window.addEventListener("scroll", handleScroll);
+window.addEventListener('scroll', handleScroll);
+const timeout = ref()
+function checkActivity() {
+  floatClass.value = `${floatClass.value}`
+  clearTimeout(timeout.value);
+   timeout.value = setTimeout(function () {
+    floatClass.value = `${floatClass.value} opacity-20`
+    }, 3000);
+  
+}
+document.addEventListener('keydown', debounce(checkActivity));
+document.addEventListener('scroll', debounce(checkActivity));
+document.addEventListener('mousedown', debounce(checkActivity));
+document.addEventListener('mousemove', debounce(checkActivity));
+
+onMounted(() => {
+  window.scrollTo({
+    left: 0,
+    top: 1,
+  })
+})
 
 const fontFamily = {
   fontFamily: `"Lucida Grande","Helvetica","Arial","微軟正黑體修正","微軟正黑體",sans-serif`
@@ -201,7 +219,8 @@ const fontFamily = {
 
     <!-- FLOAT BTNS -->
     <div
-      class="fixed top-1/4 gap-4 right-1 sm:right-10 z-10 flex items-center flex-col justify-center"
+      ref="btns"
+      class="fixed gap-4 z-10 transition duration-300 flex items-center  justify-center"
       :class="floatClass"
     >
       <div

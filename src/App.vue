@@ -163,7 +163,7 @@ function checkActivity() {
   clearTimeout(timeout.value);
    timeout.value = setTimeout(function () {
     floatClass.value = `${floatClass.value} opacity-20`
-    }, 3000);
+    }, 1000);
   
 }
 document.addEventListener('keydown', debounce(checkActivity));

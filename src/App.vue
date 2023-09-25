@@ -317,13 +317,30 @@ const fontFamily = {
       width="auto"
     >
       <v-card class="rounded-lg overflow-visible relative overflow-auto">
-        <div class="w-[90vw] sm:w-[600px] relative p-10 max-h-[55vh]">
+        <div class="w-[90vw] sm:w-[600px] relative p-4 sm:p-10 max-h-[60vh] overflow-y-auto">
           <div
-            class="flex flex-col items-center justify-center gap-4 mx-auto mb-10"
+            class="flex flex-col w-full items-start justify-center gap-4 mx-auto mb-10"
           >
-            <p><span class="font-bold">第一階段獎項：</span><br/>
-1. 喜光檯燈，共＊名<br/>
-2.＊＊＊＊＊，共＊名
+            <p><span class="font-bold text-lg">第一階段獎項：</span><br/><br/>
+              <span class="font-bold">(1) 喜光全光譜兒童護眼檯燈</span><br/>
+中獎人數：5人，每人可得<span class="font-bold text-primary">『全光譜兒童護眼檯燈乙台』</span><br/><br/>
+<p class="text-sm text-gray-500">
+  全光譜兒童護眼檯燈-蓋亞白<br/>
+全光譜兒童護眼檯燈-樂芙白NEO<br/>
+全光譜兒童護眼檯燈-樂芙白<br/>
+</p>
+<span class="text-red-500 text-xs">＊以上三款隨機出貨</span>
+</p>
+
+<p>
+              <span class="font-bold">(2) 遊戲愛樂園入場券</span><br/>
+中獎人數：5人，每人可得<span class="font-bold text-primary">『入場券 2 張』</span><br/><br/>
+<p class="text-sm text-gray-500">
+  使用辦法：<br/>
+  不限身高12歲以下：中壢中原萌獸公園店、中壢大潤發海洋公園店、新竹湳雅糖果公園店、台中新時代魔法公園店、高雄夢時代樹屋公園店、高雄Kuroro星際公園店
+<br/>
+限身高128公分以下：台北信義A8店、台北天母店、台南南紡店、高雄左營店<br/>
+</p>
 </p>
           </div>
 

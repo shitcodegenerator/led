@@ -137,7 +137,7 @@ items-start sm:items-center">
           <v-file-input accept="image/*" class="file" v-model="i.value" type="file" @change="onFileChange" />
         </div>
 
-        <!-- <img :src="preview" class="w-24" /> -->
+        <img :src="preview" class="w-24" />
         <span v-if="preview" class="text-green-500 font-bold -mt-4 text-sm">上傳成功 {{  }}</span>
       </div>
     </div>

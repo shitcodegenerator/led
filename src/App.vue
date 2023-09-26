@@ -147,16 +147,19 @@ function handleScroll() {
   var scrollPosition = window.scrollY || window.pageYOffset;
 
   if(scrollPosition > 50) {
-    floatClass.value = 'flex-col top-[10vh] right-[16px] left-[unset] -translate-x-0'
+    floatClass.value = 'sm:flex-col asdf flex-col top-[10vh] right-[16px] left-[unset] -translate-x-0'
   } else {
-    floatClass.value = 'flex-row top-[500px] right-[unset] left-1/2 -translate-x-1/2'
+    floatClass.value = 'md:flex-col xs:flex-row top-[500px] sm:top-[10vh] sm:left-[unset] sm:right-[16px] left-1/2 sm:left-[unset] -translate-x-1/2 sm:-translate-x-[unset]'
   }
 
 }
 
 window.addEventListener('scroll', handleScroll);
 const timeout = ref()
+
+
 function checkActivity() {
+
   floatClass.value = `${floatClass.value}`
   var scrollPosition = window.scrollY || window.pageYOffset;
   if(scrollPosition < 50) return
@@ -222,7 +225,7 @@ const fontFamily = {
     <!-- FLOAT BTNS -->
     <div
       ref="btns"
-      class="fixed gap-4 z-10 transition duration-300 flex items-center  justify-center"
+      class="fixed gap-4 z-10 transition duration-300 flex items-center justify-center"
       :class="floatClass"
     >
       <div

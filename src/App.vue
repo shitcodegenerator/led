@@ -312,15 +312,14 @@ const fontFamily = {
       </v-card>
     </v-dialog>
 
+
     <!-- winnersDialog -->
-    <v-dialog
-      offset="200"
-      v-model="winnersDialog"
-      class="relative"
-      width="auto"
-    >
+    <v-dialog offset="200" v-model="winnersDialog" class="relative" width="auto">
       <v-card class="rounded-lg overflow-visible relative overflow-auto">
-        <div class="w-[90vw] sm:w-[600px] relative p-4 sm:p-10 max-h-[60vh] overflow-y-auto">
+        <div
+          class="w-[90vw] sm:w-[600px] relative p-10 h-[80vh] sm:h-[560px]"
+        >
+        <div class="flex flex-col items-center gap-4  overflow-y-scroll h-[70vh] sm:h-[480px] mb-10">
           <div
             class="flex flex-col w-full items-start justify-center gap-4 mx-auto mb-10"
           >
@@ -346,11 +345,16 @@ const fontFamily = {
 </p>
 </p>
           </div>
+          <Btn @click="winnersDialog = false" class="w-full">確定</Btn>
+        </div>
 
-          <Btn @click="winnersDialog = false">確定</Btn>
+          
         </div>
       </v-card>
     </v-dialog>
+
+    
+
     <!-- 成功 -->
     <v-dialog
       offset="200"
@@ -420,7 +424,7 @@ const fontFamily = {
     >
       <img src="./assets/photo.svg" class="w-10 sm:w-20" />
       <h2 class="text-2xl sm:text-4xl font-bold text-primary">
-        <div class="sm:flex-row flex-col flex sm:gap-2 text-primary"><span class="text-primary">第一階段</span>護眼小博士</div>
+        <div class="flex-row flex sm:gap-2 text-primary"><span class="text-primary">第一階段&nbsp</span>護眼小博士</div>
       </h2>
     </div>
 

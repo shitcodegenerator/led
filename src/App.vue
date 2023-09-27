@@ -335,13 +335,23 @@ const fontFamily = {
 </p>
 
 <p>
-              <span class="font-bold">(2) 遊戲愛樂園入場券</span><br/>
+              <span class="font-bold">(2) 大魯閣遊戲愛樂園入場券</span><br/>
 中獎人數：5人，每人可得<span class="font-bold text-primary">『入場券 2 張』</span><br/><br/>
+<p class="text-sm text-gray-500">
+  使用期限：<br/>
+  2023年10月31日～ 2024年04月30日
+</p>
 <p class="text-sm text-gray-500">
   使用辦法：<br/>
   不限身高12歲以下：中壢中原萌獸公園店、中壢大潤發海洋公園店、新竹湳雅糖果公園店、台中新時代魔法公園店、高雄夢時代樹屋公園店、高雄Kuroro星際公園店
 <br/>
 限身高128公分以下：台北信義A8店、台北天母店、台南南紡店、高雄左營店<br/>
+</p>
+<p class="text-sm text-gray-500">
+  遊玩時間：<br/>
+  平日不限時，假日限時兩小時
+
+<br/>
 </p>
 </p>
           </div>

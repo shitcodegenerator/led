@@ -325,13 +325,16 @@ const fontFamily = {
           >
             <p><span class="font-bold text-lg">第一階段獎項：</span><br/><br/>
               <span class="font-bold">(1) 喜光全光譜兒童護眼檯燈</span><br/>
-中獎人數：5人，每人可得<span class="font-bold text-primary">『全光譜兒童護眼檯燈乙台』</span><br/><br/>
+中獎人數：5人，每人可得<span class="font-bold text-primary">『全光譜兒童護眼檯燈乙台』＋『網紅同款-限量護眼小博士暱稱吊牌乙個』
+</span><br/><br/>
 <p class="text-sm text-gray-500">
   全光譜兒童護眼檯燈-蓋亞白<br/>
 全光譜兒童護眼檯燈-樂芙白NEO<br/>
 全光譜兒童護眼檯燈-樂芙白<br/>
 </p>
 <span class="text-red-500 text-xs">＊以上三款隨機出貨</span>
+<br/>
+<span class="text-red-500 text-xs">＊限量吊牌為電繡客製．暱稱同上傳照片時所填寫之護眼小博士暱稱</span>
 </p>
 
 <p>

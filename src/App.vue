@@ -83,18 +83,30 @@ function debounce(func, delay = 250) {
     }, delay);
   }
 }
+// https://ledbackend.vercel.app
 
-const getPhotos = async () => {
+const getPhotos = async (phase = 1) => {
   try {
-    const res = await http.get(`https://ledbackend.vercel.app/getPhoto?page=1&size=10`);
+    const res = await http.get(`https://ledbackend.vercel.app/getPhoto?page=1&size=40?phase=${phase}`);
     photos.value = res.data.data.data;
   } catch (err) {
     console.log(err);
   }
 };
 
-onMounted(() => {
-  getPhotos();
+onMounted(async() => {
+  console.log(new Date() < new Date('2023-10-30 23:59:59'))
+  if (new Date() < new Date('2023-10-30 23:59:59')) {
+    await getPhotos(1);
+  } else if(new Date() < new Date('2023-11-29 23:59:59')) {
+    await getPhotos(2);
+    await getPhotos(1);
+  } else {
+    await getPhotos(3);
+    await getPhotos(2);
+    await getPhotos(1);
+    
+  }
 });
 
 const onClickEnroll = async (data) => {

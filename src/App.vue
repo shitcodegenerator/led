@@ -95,18 +95,7 @@ const getPhotos = async (phase = 1) => {
 };
 
 onMounted(async() => {
-  console.log(new Date() < new Date('2023-10-30 23:59:59'))
-  if (new Date() < new Date('2023-10-30 23:59:59')) {
-    await getPhotos(1);
-  } else if(new Date() < new Date('2023-11-29 23:59:59')) {
-    await getPhotos(2);
-    await getPhotos(1);
-  } else {
-    await getPhotos(3);
-    await getPhotos(2);
-    await getPhotos(1);
-    
-  }
+  await getPhotos(1);
 });
 
 const onClickEnroll = async (data) => {
@@ -451,7 +440,7 @@ const fontFamily = {
     >
       <img src="./assets/photo.svg" class="w-10 sm:w-20" />
       <h2 class="text-2xl sm:text-4xl font-bold text-primary">
-        <div class="flex-row flex sm:gap-2 text-primary"><span class="text-primary">第一階段&nbsp</span>護眼小博士</div>
+        <div class="flex-row flex sm:gap-2 text-primary">護眼小博士</div>
       </h2>
     </div>
 

@@ -11,6 +11,7 @@ import Footer from "./components/Footer.vue";
 import http from "./http";
 import Notify from "./components/Notify.vue";
 import logo from "./assets/sylstarlogo.png";
+import logo2 from "./assets/jk.png";
 
 const showLoading = ref(false);
 const winnersDialog = ref(false);
@@ -481,8 +482,9 @@ const fontFamily = {
       <h2 class="text-2xl sm:text-4xl font-bold text-primary">活動贊助商</h2>
     </div>
 
-      <div class="grid grid-cols grid-cols-1  max-w-[1180px] mx-auto gap-8 px-4 sm:px-0">
-      <img :src="logo" class="h-[80px] mx-auto"   v-for="i in 1"/>
+      <div class="flex  max-w-[720px] mx-auto gap-4 px-4 sm:px-0">
+      <img :src="logo" class="h-[60px] sm:h-[80px] mx-auto"/>
+      <img :src="logo2" class="h-[60px] sm:h-[80px] mx-auto"/>
     </div>
 
     </div>

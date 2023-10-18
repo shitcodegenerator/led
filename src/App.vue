@@ -12,6 +12,7 @@ import http from "./http";
 import Notify from "./components/Notify.vue";
 import logo from "./assets/sylstarlogo.png";
 import logo2 from "./assets/jk.png";
+import logo3 from "./assets/logo3.png";
 
 const showLoading = ref(false);
 const winnersDialog = ref(false);
@@ -344,7 +345,7 @@ const fontFamily = {
 中獎人數：5人，每人可得<span class="font-bold text-primary">『入場券 2 張』</span><br/><br/>
 <p class="text-sm text-gray-500">
   使用期限：<br/>
-  2023年10月31日～ 2024年04月30日
+  2023年10月31日～ 2024年06月30日
 </p>
 <br/>
 <p class="text-sm text-gray-500">
@@ -357,10 +358,28 @@ const fontFamily = {
 <p class="text-sm text-gray-500">
   遊玩時間：<br/>
   平日不限時，假日限時兩小時
-
 <br/>
 </p>
 </p>
+
+<p>
+              <span class="font-bold">(3) 晶工</span><br/>
+中獎人數：2人，每人可得<span class="font-bold text-primary">『晶工小家電乙台』</span><br/>
+<p class="text-gray-500">
+  - 美式咖啡壺JK-917
+<br/>
+- 9L電烤箱 JK-709
+<br/>
+<span class="text-red-500 text-xs">＊以上兩款隨機出貨，不可挑選品項</span>
+</p>
+</p>
+
+<p>
+              <span class="font-bold">(4) Beyond Time</span><br/>
+中獎人數：10人，每人可得<span class="font-bold text-primary">『胺基酸多元潔顏慕斯150ml乙罐』</span><br/>
+
+</p>
+<br/>
           </div>
           <Btn @click="winnersDialog = false" class="w-full">確定</Btn>
         </div>
@@ -485,6 +504,7 @@ const fontFamily = {
       <div class="flex  max-w-[720px] mx-auto gap-4 px-4 sm:px-0">
       <img :src="logo" class="h-[60px] sm:h-[80px] mx-auto"/>
       <img :src="logo2" class="h-[60px] sm:h-[80px] mx-auto"/>
+      <img :src="logo3" class="h-[80px] sm:h-[100px] mx-auto"/>
     </div>
 
     </div>

@@ -365,10 +365,10 @@ const fontFamily = {
 <p>
               <span class="font-bold">(3) 晶工</span><br/>
 中獎人數：2人，每人可得<span class="font-bold text-primary">『晶工小家電乙台』</span><br/>
-<p class="text-gray-500">
-  - 美式咖啡壺JK-917
+<p class="text-gray-500 text-sm ">
+  美式咖啡壺JK-917
 <br/>
-- 9L電烤箱 JK-709
+9L電烤箱 JK-709
 <br/>
 <span class="text-red-500 text-xs">＊以上兩款隨機出貨，不可挑選品項</span>
 </p>

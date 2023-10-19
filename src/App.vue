@@ -11,6 +11,7 @@ import Footer from "./components/Footer.vue";
 import http from "./http";
 import Notify from "./components/Notify.vue";
 import logo from "./assets/sylstarlogo.png";
+import logo1 from "./assets/logo1.png";
 import logo2 from "./assets/jk.png";
 import logo3 from "./assets/logo3.png";
 
@@ -502,7 +503,7 @@ const fontFamily = {
     </div>
 
       <div class="flex  max-w-[720px] mx-auto gap-4 px-4 sm:px-0">
-      <img :src="logo" class="h-[60px] sm:h-[80px] mx-auto"/>
+      <img :src="logo1" class="h-[60px] sm:h-[80px] mx-auto"/>
       <img :src="logo2" class="h-[60px] sm:h-[80px] mx-auto"/>
       <img :src="logo3" class="h-[80px] sm:h-[100px] mx-auto"/>
     </div>

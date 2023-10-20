@@ -35,7 +35,7 @@ const openErrorDialog = (msg) => {
   }, 1500);
 };
 
-const floatBtns = [
+const floatBtns = ref([
   {
     title: "點我報名",
     value: "event",
@@ -52,12 +52,13 @@ const floatBtns = [
     title: "注意事項",
     value: "notification",
   },
-];
+]);
 
 const onBtnClick = (type) => {
   dialogType.value = type;
   switch (type) {
     case "event":
+      if(isDeadline.value) return
       dialog.value = true;
       break;
     case "upload":
@@ -97,8 +98,14 @@ const getPhotos = async (phase = 1) => {
   }
 };
 
+const isDeadline = ref(false)
+
 onMounted(async() => {
   await getPhotos(1);
+  if(new Date().getTime() > new Date('2023-10-21 00:00:00').getTime()) {
+    floatBtns.value[0].title = '報名已截止'
+    isDeadline.value = true
+  }
 });
 
 const onClickEnroll = async (data) => {
@@ -235,6 +242,7 @@ const fontFamily = {
       <div
         @click="onBtnClick(i.value)"
         class="float-btn"
+        :style="isDeadline && i.value === 'event' && 'background: gray;cursor: not-allowed;font-size: 12px;'"
         v-for="i in floatBtns"
         :key="i.value"
       >
@@ -343,7 +351,7 @@ const fontFamily = {
 
 <p>
               <span class="font-bold">(2) 大魯閣遊戲愛樂園入場券</span><br/>
-中獎人數：5人，每人可得<span class="font-bold text-primary">『入場券 2 張』</span><br/><br/>
+中獎人數：10人，每人可得<span class="font-bold text-primary">『入場券 1 張』</span><br/><br/>
 <p class="text-sm text-gray-500">
   使用期限：<br/>
   2023年10月31日～ 2024年06月30日

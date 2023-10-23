@@ -91,7 +91,7 @@ function debounce(func, delay = 250) {
 
 const getPhotos = async (phase = 1) => {
   try {
-    const res = await http.get(`https://ledbackend.vercel.app/getPhoto?page=1&size=40?phase=${phase}`);
+    const res = await http.get(`https://ledbackend.vercel.app/getPhoto?page=1&size=40&phase=${phase}`);
     photos.value = res.data.data.data;
   } catch (err) {
     console.log(err);

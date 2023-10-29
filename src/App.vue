@@ -101,7 +101,7 @@ const getPhotos = async (size = 100) => {
 const isDeadline = ref(false)
 
 onMounted(async() => {
-  await getPhotos(40);
+  await getPhotos(100);
   setTimeout(async () => {
     await getPhotos(2);
   })

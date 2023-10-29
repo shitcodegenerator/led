@@ -102,10 +102,10 @@ const isDeadline = ref(false)
 
 onMounted(async() => {
   await getPhotos(100);
-  setTimeout(async () => {
-    await getPhotos(2);
-  })
-  await getPhotos(1);
+  // setTimeout(async () => {
+  //   await getPhotos(2);
+  // })
+  // await getPhotos(1);
   if(new Date().getTime() > new Date('2023-10-21 00:00:00').getTime()) {
     floatBtns.value[0].title = '報名已截止'
     isDeadline.value = true

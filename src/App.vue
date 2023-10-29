@@ -89,9 +89,9 @@ function debounce(func, delay = 250) {
 }
 // https://ledbackend.vercel.app
 
-const getPhotos = async (phase = 1) => {
+const getPhotos = async (size = 100) => {
   try {
-    const res = await http.get(`https://ledbackend.vercel.app/getPhoto?page=1&size=40&phase=${phase}`);
+    const res = await http.get(`https://ledbackend.vercel.app/getPhoto?page=1&size=${size}`);
     photos.value = res.data.data.data;
   } catch (err) {
     console.log(err);
@@ -101,6 +101,10 @@ const getPhotos = async (phase = 1) => {
 const isDeadline = ref(false)
 
 onMounted(async() => {
+  await getPhotos(40);
+  setTimeout(async () => {
+    await getPhotos(2);
+  })
   await getPhotos(1);
   if(new Date().getTime() > new Date('2023-10-21 00:00:00').getTime()) {
     floatBtns.value[0].title = '報名已截止'

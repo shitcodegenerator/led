@@ -476,7 +476,7 @@ const p1_list_beyond = [
   <span class="block w-40 pt-2 pb-2">小博士暱稱</span>
 </div>
 
-<div v-for="i in p1_list_park" class="flex py-1 items-center justify-center flex-row text-sm ">
+<div v-for="i in p1_list_light" class="flex py-1 items-center justify-center flex-row text-sm ">
   <span class="block w-40 pl-4">{{ i.name }}</span>
   <span class="block w-40">{{ i.kid }}</span>
 </div>

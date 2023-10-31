@@ -199,6 +199,123 @@ onMounted(() => {
 const fontFamily = {
   fontFamily: `"Lucida Grande","Helvetica","Arial","微軟正黑體修正","微軟正黑體",sans-serif`
 }
+
+const p1_list_light = [
+  {
+    name: '黃O吉',
+    kid: 'Casper'
+  },
+  {
+    name: '王O萱',
+    kid: '小可愛'
+  },
+  {
+    name: '蘇O州',
+    kid: '蘇祐民'
+  },
+  {
+    name: '劉O寧',
+    kid: '小蘋果小博士'
+  },
+  {
+    name: '林O惠',
+    kid: 'Wayne'
+  },
+]
+const p1_list_park = [
+  {
+    name: '廖O怡',
+    kid: '昀倢'
+  },
+  {
+    name: '王O瑋',
+    kid: '土豆'
+  },
+  {
+    name: '柯O恩',
+    kid: '喬喬'
+  },
+  {
+    name: '鄭O燕',
+    kid: '樂樂小獵豹'
+  },
+  {
+    name: '陳O君',
+    kid: '阿蓁護眼小博士'
+  },
+  {
+    name: '蔡O芸',
+    kid: '咪乓'
+  },
+  {
+    name: '黃O旋',
+    kid: '霓霓護眼小博士'
+  },
+  {
+    name: '陳O琳',
+    kid: '華琳護眼小博士'
+  },
+  {
+    name: '張O倫',
+    kid: '桐桐'
+  },
+  {
+    name: '古O晴',
+    kid: '小嬡'
+  },
+]
+const p1_list_house = [
+  {
+    name: '劉O梅',
+    kid: '漢堡'
+  },
+  {
+    name: '呂O蓁',
+    kid: '彩緹'
+  },
+]
+const p1_list_beyond = [
+  {
+    name: '呂O婷',
+    kid: '恩恩'
+  },
+  {
+    name: '陳O琪',
+    kid: '糖果兔'
+  },
+  {
+    name: '張O彥',
+    kid: 'Billy張'
+  },
+  {
+    name: '黃O婷',
+    kid: '阿肥仔兄妹二人組'
+  },
+  {
+    name: '黃O涵',
+    kid: '我是眼科小醫生'
+  },
+  {
+    name: '林O慧',
+    kid: '星星'
+  },
+  {
+    name: '張O旻',
+    kid: '小妤兒'
+  },
+  {
+    name: '温O美',
+    kid: '芯芯'
+  },
+  {
+    name: '尤O如',
+    kid: '云云護眼小博士'
+  },
+  {
+    name: '劉O茹',
+    kid: '樂樂'
+  },
+]
 </script>
 
 <template>
@@ -353,6 +470,19 @@ const fontFamily = {
 <span class="text-red-500 text-xs">＊限量吊牌為電繡客製．暱稱同上傳照片時所填寫之護眼小博士暱稱</span>
 </p>
 
+<div class="flex flex-col gap-2 border  rounded-lg overflow-hidden">
+  <div class="flex flex-row text-sm font-bold border-b bg-[#f3f3f3]">
+  <span class="block w-40 pl-4 pt-2 pb-2">得獎者姓名</span>
+  <span class="block w-40 pt-2 pb-2">小博士暱稱</span>
+</div>
+
+<div v-for="i in p1_list_light" class="flex py-1 items-center justify-center flex-row text-sm ">
+  <span class="block w-40 pl-4">{{ i.name }}</span>
+  <span class="block w-40">{{ i.kid }}</span>
+</div>
+</div>
+
+
 <p>
               <span class="font-bold">(2) 大魯閣遊戲愛樂園入場券</span><br/>
 中獎人數：10人，每人可得<span class="font-bold text-primary">『入場券 1 張』</span><br/><br/>
@@ -375,6 +505,18 @@ const fontFamily = {
 </p>
 </p>
 
+<div class="flex flex-col gap-2 border  rounded-lg overflow-hidden">
+  <div class="flex flex-row text-sm font-bold border-b bg-[#f3f3f3]">
+  <span class="block w-40 pl-4 pt-2 pb-2">得獎者姓名</span>
+  <span class="block w-40 pt-2 pb-2">小博士暱稱</span>
+</div>
+
+<div v-for="i in p1_list_light" class="flex py-1 items-center justify-center flex-row text-sm ">
+  <span class="block w-40 pl-4">{{ i.name }}</span>
+  <span class="block w-40">{{ i.kid }}</span>
+</div>
+</div>
+
 <p>
               <span class="font-bold">(3) 晶工</span><br/>
 中獎人數：2人，每人可得<span class="font-bold text-primary">『晶工小家電乙台』</span><br/>
@@ -387,11 +529,35 @@ const fontFamily = {
 </p>
 </p>
 
+<div class="flex flex-col gap-2 border  rounded-lg overflow-hidden">
+  <div class="flex flex-row text-sm font-bold border-b bg-[#f3f3f3]">
+  <span class="block w-40 pl-4 pt-2 pb-2">得獎者姓名</span>
+  <span class="block w-40 pt-2 pb-2">小博士暱稱</span>
+</div>
+
+<div v-for="i in p1_list_light" class="flex py-1 items-center justify-center flex-row text-sm ">
+  <span class="block w-40 pl-4">{{ i.name }}</span>
+  <span class="block w-40">{{ i.kid }}</span>
+</div>
+</div>
+
 <p>
               <span class="font-bold">(4) Beyond Time</span><br/>
 中獎人數：10人，每人可得<span class="font-bold text-primary">『胺基酸多元潔顏慕斯150ml乙罐』</span><br/>
 
 </p>
+
+<div class="flex flex-col gap-2 border  rounded-lg overflow-hidden">
+  <div class="flex flex-row text-sm font-bold border-b bg-[#f3f3f3]">
+  <span class="block w-40 pl-4 pt-2 pb-2">得獎者姓名</span>
+  <span class="block w-40 pt-2 pb-2">小博士暱稱</span>
+</div>
+
+<div v-for="i in p1_list_light" class="flex py-1 items-center justify-center flex-row text-sm ">
+  <span class="block w-40 pl-4">{{ i.name }}</span>
+  <span class="block w-40">{{ i.kid }}</span>
+</div>
+</div>
 <br/>
           </div>
           <Btn @click="winnersDialog = false" class="w-full">確定</Btn>

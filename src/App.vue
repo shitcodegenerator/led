@@ -456,7 +456,7 @@ const p1_list_beyond = [
           <div
             class="flex flex-col w-full items-start justify-center gap-4 mx-auto mb-10"
           >
-            <p><span class="font-bold text-lg">第一階段獎項：</span><br/><br/>
+            <p><span class="font-bold text-lg">三階段各階段獎項：</span><br/><br/>
               <span class="font-bold">(1) 喜光全光譜兒童護眼檯燈</span><br/>
 中獎人數：5人，每人可得<span class="font-bold text-primary">『全光譜兒童護眼檯燈乙台』＋『網紅同款-限量護眼小博士暱稱吊牌乙個』
 </span><br/><br/>
@@ -472,7 +472,7 @@ const p1_list_beyond = [
 
 <div class="flex flex-col gap-2 border  rounded-lg overflow-hidden">
   <div class="flex flex-row text-sm font-bold border-b bg-[#f3f3f3]">
-  <span class="block w-40 pl-4 pt-2 pb-2">得獎者姓名</span>
+  <span class="block w-40 pl-4 pt-2 pb-2">第一階段</span>
   <span class="block w-40 pt-2 pb-2">小博士暱稱</span>
 </div>
 
@@ -507,7 +507,7 @@ const p1_list_beyond = [
 
 <div class="flex flex-col gap-2 border  rounded-lg overflow-hidden">
   <div class="flex flex-row text-sm font-bold border-b bg-[#f3f3f3]">
-  <span class="block w-40 pl-4 pt-2 pb-2">得獎者姓名</span>
+  <span class="block w-40 pl-4 pt-2 pb-2">第一階段</span>
   <span class="block w-40 pt-2 pb-2">小博士暱稱</span>
 </div>
 
@@ -531,7 +531,7 @@ const p1_list_beyond = [
 
 <div class="flex flex-col gap-2 border  rounded-lg overflow-hidden">
   <div class="flex flex-row text-sm font-bold border-b bg-[#f3f3f3]">
-  <span class="block w-40 pl-4 pt-2 pb-2">得獎者姓名</span>
+  <span class="block w-40 pl-4 pt-2 pb-2">第一階段</span>
   <span class="block w-40 pt-2 pb-2">小博士暱稱</span>
 </div>
 
@@ -549,7 +549,7 @@ const p1_list_beyond = [
 
 <div class="flex flex-col gap-2 border  rounded-lg overflow-hidden">
   <div class="flex flex-row text-sm font-bold border-b bg-[#f3f3f3]">
-  <span class="block w-40 pl-4 pt-2 pb-2">得獎者姓名</span>
+  <span class="block w-40 pl-4 pt-2 pb-2">第一階段</span>
   <span class="block w-40 pt-2 pb-2">小博士暱稱</span>
 </div>
 

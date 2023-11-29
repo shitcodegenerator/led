@@ -37,7 +37,7 @@ const openErrorDialog = (msg) => {
 
 const floatBtns = ref([
   {
-    title: "點我報名",
+    title: "報名已截止",
     value: "event",
   },
   {
@@ -98,7 +98,7 @@ const getPhotos = async (size = 200) => {
   }
 };
 
-const isDeadline = ref(false)
+const isDeadline = ref(true)
 
 onMounted(async() => {
   await getPhotos(100);

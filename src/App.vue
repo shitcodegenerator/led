@@ -89,7 +89,7 @@ function debounce(func, delay = 250) {
 }
 // https://ledbackend.vercel.app
 
-const getPhotos = async (size = 200) => {
+const getPhotos = async (size = 300) => {
   try {
     const res = await http.get(`https://ledbackend.vercel.app/getPhoto?page=1&size=${size}`);
     photos.value = res.data.data.data;
@@ -101,7 +101,7 @@ const getPhotos = async (size = 200) => {
 const isDeadline = ref(true)
 
 onMounted(async() => {
-  await getPhotos(100);
+  await getPhotos(300);
   // setTimeout(async () => {
   //   await getPhotos(2);
   // })

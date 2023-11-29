@@ -89,7 +89,7 @@ function debounce(func, delay = 250) {
 }
 // https://ledbackend.vercel.app
 
-const getPhotos = async (size = 100) => {
+const getPhotos = async (size = 200) => {
   try {
     const res = await http.get(`https://ledbackend.vercel.app/getPhoto?page=1&size=${size}`);
     photos.value = res.data.data.data;
@@ -222,6 +222,30 @@ const p1_list_light = [
     kid: 'Wayne'
   },
 ]
+
+const p2_list_light = [
+  {
+    name: '郭O如',
+    kid: 'Lee護眼小博士'
+  },
+  {
+    name: '黃O婷',
+    kid: 'Eli'
+  },
+  {
+    name: '黃O婷',
+    kid: '宥榛'
+  },
+  {
+    name: '曾O蘭',
+    kid: 'MIFFY'
+  },
+  {
+    name: '黃O美',
+    kid: '李醫生小博士'
+  },
+]
+
 const p1_list_park = [
   {
     name: '廖O怡',
@@ -264,6 +288,50 @@ const p1_list_park = [
     kid: '小嬡'
   },
 ]
+
+const p2_list_park = [
+  {
+    name: '陳O辰',
+    kid: '🐮🐮小博士'
+  },
+  {
+    name: '王O怡',
+    kid: '安心豚'
+  },
+  {
+    name: '吳O如',
+    kid: 'Jaimie'
+  },
+  {
+    name: '許O雯',
+    kid: '叡叡'
+  },
+  {
+    name: '張O綺',
+    kid: '一姊'
+  },
+  {
+    name: '陳O揚',
+    kid: '球球'
+  },
+  {
+    name: '陳O睿',
+    kid: '小叉燒'
+  },
+  {
+    name: '陳O蘋',
+    kid: 'Budy'
+  },
+  {
+    name: '林O蓉',
+    kid: '艾寬'
+  },
+  {
+    name: '姚O如',
+    kid: '白朮'
+  },
+]
+
 const p1_list_house = [
   {
     name: '劉O梅',
@@ -274,6 +342,18 @@ const p1_list_house = [
     kid: '彩緹'
   },
 ]
+
+const p2_list_house = [
+  {
+    name: '杜O皓',
+    kid: 'Mr.皓皓'
+  },
+  {
+    name: '陳O茹',
+    kid: '抹茶哥'
+  },
+]
+
 const p1_list_beyond = [
   {
     name: '呂O婷',
@@ -314,6 +394,49 @@ const p1_list_beyond = [
   {
     name: '劉O茹',
     kid: '樂樂'
+  },
+]
+
+const p2_list_beyond = [
+  {
+    name: '李O蓉',
+    kid: '賢賢'
+  },
+  {
+    name: '廖O雯',
+    kid: 'Milly'
+  },
+  {
+    name: '黃O涵',
+    kid: '紫妍'
+  },
+  {
+    name: '江O葦',
+    kid: '莉婭小博士'
+  },
+  {
+    name: '陳O瑩',
+    kid: '小k博士'
+  },
+  {
+    name: '廖O玲',
+    kid: 'YUNABABY'
+  },
+  {
+    name: '余O儒',
+    kid: '余沐沐'
+  },
+  {
+    name: '顏O鳳',
+    kid: '愛妮護眼小小博士'
+  },
+  {
+    name: '余O澄',
+    kid: '水珍珠'
+  },
+  {
+    name: '何O霖',
+    kid: 'Zachary'
   },
 ]
 </script>
@@ -482,6 +605,18 @@ const p1_list_beyond = [
 </div>
 </div>
 
+<div class="flex flex-col gap-2 border  rounded-lg overflow-hidden">
+  <div class="flex flex-row text-sm font-bold border-b bg-[#f3f3f3]">
+  <span class="block w-40 pl-4 pt-2 pb-2">第二階段</span>
+  <span class="block w-40 pt-2 pb-2">小博士暱稱</span>
+</div>
+
+<div v-for="i in p2_list_light" class="flex py-1 items-center justify-center flex-row text-sm ">
+  <span class="block w-40 pl-4">{{ i.name }}</span>
+  <span class="block w-40">{{ i.kid }}</span>
+</div>
+</div>
+
 
 <p>
               <span class="font-bold">(2) 大魯閣遊戲愛樂園入場券</span><br/>
@@ -517,6 +652,18 @@ const p1_list_beyond = [
 </div>
 </div>
 
+<div class="flex flex-col gap-2 border  rounded-lg overflow-hidden">
+  <div class="flex flex-row text-sm font-bold border-b bg-[#f3f3f3]">
+  <span class="block w-40 pl-4 pt-2 pb-2">第二階段</span>
+  <span class="block w-40 pt-2 pb-2">小博士暱稱</span>
+</div>
+
+<div v-for="i in p2_list_park" class="flex py-1 items-center justify-center flex-row text-sm ">
+  <span class="block w-40 pl-4">{{ i.name }}</span>
+  <span class="block w-40">{{ i.kid }}</span>
+</div>
+</div>
+
 <p>
               <span class="font-bold">(3) 晶工</span><br/>
 中獎人數：2人，每人可得<span class="font-bold text-primary">『晶工小家電乙台』</span><br/>
@@ -541,6 +688,18 @@ const p1_list_beyond = [
 </div>
 </div>
 
+<div class="flex flex-col gap-2 border  rounded-lg overflow-hidden">
+  <div class="flex flex-row text-sm font-bold border-b bg-[#f3f3f3]">
+  <span class="block w-40 pl-4 pt-2 pb-2">第二階段</span>
+  <span class="block w-40 pt-2 pb-2">小博士暱稱</span>
+</div>
+
+<div v-for="i in p2_list_house" class="flex py-1 items-center justify-center flex-row text-sm ">
+  <span class="block w-40 pl-4">{{ i.name }}</span>
+  <span class="block w-40">{{ i.kid }}</span>
+</div>
+</div>
+
 <p>
               <span class="font-bold">(4) Beyond Time</span><br/>
 中獎人數：10人，每人可得<span class="font-bold text-primary">『胺基酸多元潔顏慕斯150ml乙罐』</span><br/>
@@ -554,6 +713,18 @@ const p1_list_beyond = [
 </div>
 
 <div v-for="i in p1_list_beyond" class="flex py-1 items-center justify-center flex-row text-sm ">
+  <span class="block w-40 pl-4">{{ i.name }}</span>
+  <span class="block w-40">{{ i.kid }}</span>
+</div>
+</div>
+
+<div class="flex flex-col gap-2 border  rounded-lg overflow-hidden">
+  <div class="flex flex-row text-sm font-bold border-b bg-[#f3f3f3]">
+  <span class="block w-40 pl-4 pt-2 pb-2">第二階段</span>
+  <span class="block w-40 pt-2 pb-2">小博士暱稱</span>
+</div>
+
+<div v-for="i in p2_list_beyond" class="flex py-1 items-center justify-center flex-row text-sm ">
   <span class="block w-40 pl-4">{{ i.name }}</span>
   <span class="block w-40">{{ i.kid }}</span>
 </div>

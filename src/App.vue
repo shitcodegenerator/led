@@ -431,10 +431,6 @@ const p2_list_beyond = [
     kid: '愛妮護眼小小博士'
   },
   {
-    name: '余O澄',
-    kid: '水珍珠'
-  },
-  {
     name: '何O霖',
     kid: 'Zachary'
   },

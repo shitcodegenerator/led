@@ -58,7 +58,7 @@ const onBtnClick = (type) => {
   dialogType.value = type;
   switch (type) {
     case "event":
-      if(isDeadline.value) return
+      // if(isDeadline.value) return
       dialog.value = true;
       break;
     case "upload":
@@ -223,6 +223,29 @@ const p1_list_light = [
   },
 ]
 
+const p3_list_light = [
+  {
+    name: '李O玲',
+    kid: '秀秀'
+  },
+  {
+    name: '李O芬',
+    kid: '卓卓'
+  },
+  {
+    name: '陳O廷',
+    kid: 'Jolie'
+  },
+  {
+    name: '曾O楷',
+    kid: '我是喬妹喬妹是我'
+  },
+  {
+    name: '林O茹',
+    kid: '林小羊'
+  },
+]
+
 const p2_list_light = [
   {
     name: '郭O如',
@@ -332,6 +355,50 @@ const p2_list_park = [
   },
 ]
 
+
+const p3_list_park = [
+  {
+    name: '柯O華',
+    kid: '閎閎小博士'
+  },
+  {
+    name: '黃O娟',
+    kid: 'Celine'
+  },
+  {
+    name: '周O君',
+    kid: '滾滾超人'
+  },
+  {
+    name: '陳O瑩',
+    kid: '柚柚醫生已上線'
+  },
+  {
+    name: '洪O蓉',
+    kid: '辰辰'
+  },
+  {
+    name: '張O忻',
+    kid: '恩恩 護眼小博士'
+  },
+  {
+    name: '林O如',
+    kid: '秧秧小博士'
+  },
+  {
+    name: '周O怡',
+    kid: '念念公護眼小博士'
+  },
+  {
+    name: '李O君',
+    kid: '小晏晏'
+  },
+  {
+    name: '朱O芸',
+    kid: '小章魚哥哥小卷弟'
+  },
+]
+
 const p1_list_house = [
   {
     name: '劉O梅',
@@ -351,6 +418,18 @@ const p2_list_house = [
   {
     name: '陳O茹',
     kid: '抹茶哥'
+  },
+]
+
+
+const p3_list_house = [
+  {
+    name: '江O錚',
+    kid: 'Lan'
+  },
+  {
+    name: '徐O蕎',
+    kid: '棋棋小博士'
   },
 ]
 
@@ -433,6 +512,49 @@ const p2_list_beyond = [
   {
     name: '何O霖',
     kid: 'Zachary'
+  },
+]
+
+const p3_list_beyond = [
+  {
+    name: '簡O慈',
+    kid: '菲寶'
+  },
+  {
+    name: '呂O柱',
+    kid: 'CC小博士'
+  },
+  {
+    name: '李O瑾',
+    kid: '多多，愛護眼睛'
+  },
+  {
+    name: '林O浚',
+    kid: '護眼小濬'
+  },
+  {
+    name: '吳O雅',
+    kid: '靚靚亮晶晶'
+  },
+  {
+    name: '許O瑜',
+    kid: 'Orli'
+  },
+  {
+    name: '陳O紋',
+    kid: '郭小妤'
+  },
+  {
+    name: '鄭O玲',
+    kid: '護眼小全全'
+  },
+  {
+    name: '陳O樺',
+    kid: 'CC'
+  },
+  {
+    name: '施O汝',
+    kid: '施青汝'
   },
 ]
 </script>
@@ -614,6 +736,19 @@ const p2_list_beyond = [
 </div>
 
 
+<div class="flex flex-col gap-2 border  rounded-lg overflow-hidden">
+  <div class="flex flex-row text-sm font-bold border-b bg-[#f3f3f3]">
+  <span class="block w-40 pl-4 pt-2 pb-2">第三階段</span>
+  <span class="block w-40 pt-2 pb-2">小博士暱稱</span>
+</div>
+
+<div v-for="i in p3_list_light" class="flex py-1 items-center justify-center flex-row text-sm ">
+  <span class="block w-40 pl-4">{{ i.name }}</span>
+  <span class="block w-40">{{ i.kid }}</span>
+</div>
+</div>
+
+
 <p>
               <span class="font-bold">(2) 大魯閣遊戲愛樂園入場券</span><br/>
 中獎人數：10人，每人可得<span class="font-bold text-primary">『入場券 1 張』</span><br/><br/>
@@ -660,6 +795,18 @@ const p2_list_beyond = [
 </div>
 </div>
 
+<div class="flex flex-col gap-2 border  rounded-lg overflow-hidden">
+  <div class="flex flex-row text-sm font-bold border-b bg-[#f3f3f3]">
+  <span class="block w-40 pl-4 pt-2 pb-2">第三階段</span>
+  <span class="block w-40 pt-2 pb-2">小博士暱稱</span>
+</div>
+
+<div v-for="i in p3_list_park" class="flex py-1 items-center justify-center flex-row text-sm ">
+  <span class="block w-40 pl-4">{{ i.name }}</span>
+  <span class="block w-40">{{ i.kid }}</span>
+</div>
+</div>
+
 <p>
               <span class="font-bold">(3) 晶工</span><br/>
 中獎人數：2人，每人可得<span class="font-bold text-primary">『晶工小家電乙台』</span><br/>
@@ -696,6 +843,18 @@ const p2_list_beyond = [
 </div>
 </div>
 
+<div class="flex flex-col gap-2 border  rounded-lg overflow-hidden">
+  <div class="flex flex-row text-sm font-bold border-b bg-[#f3f3f3]">
+  <span class="block w-40 pl-4 pt-2 pb-2">第三階段</span>
+  <span class="block w-40 pt-2 pb-2">小博士暱稱</span>
+</div>
+
+<div v-for="i in p3_list_house" class="flex py-1 items-center justify-center flex-row text-sm ">
+  <span class="block w-40 pl-4">{{ i.name }}</span>
+  <span class="block w-40">{{ i.kid }}</span>
+</div>
+</div>
+
 <p>
               <span class="font-bold">(4) Beyond Time</span><br/>
 中獎人數：10人，每人可得<span class="font-bold text-primary">『胺基酸多元潔顏慕斯150ml乙罐』</span><br/>
@@ -721,6 +880,18 @@ const p2_list_beyond = [
 </div>
 
 <div v-for="i in p2_list_beyond" class="flex py-1 items-center justify-center flex-row text-sm ">
+  <span class="block w-40 pl-4">{{ i.name }}</span>
+  <span class="block w-40">{{ i.kid }}</span>
+</div>
+</div>
+
+<div class="flex flex-col gap-2 border  rounded-lg overflow-hidden">
+  <div class="flex flex-row text-sm font-bold border-b bg-[#f3f3f3]">
+  <span class="block w-40 pl-4 pt-2 pb-2">第三階段</span>
+  <span class="block w-40 pt-2 pb-2">小博士暱稱</span>
+</div>
+
+<div v-for="i in p3_list_beyond" class="flex py-1 items-center justify-center flex-row text-sm ">
   <span class="block w-40 pl-4">{{ i.name }}</span>
   <span class="block w-40">{{ i.kid }}</span>
 </div>

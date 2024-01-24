@@ -92,7 +92,12 @@ function debounce(func, delay = 250) {
 const getPhotos = async (size = 300) => {
   try {
     const res = await http.get(`https://ledbackend.vercel.app/getPhoto?page=1&size=${size}`);
-    photos.value = res.data.data.data;
+    photos.value = res.data.data.data.map(i => {
+      return {
+        ...i,
+        photo: i.photo.replace('https://drive.google.com/uc?id=', 'https://lh3.googleusercontent.com/u/0/d/')
+      }
+    })
   } catch (err) {
     console.log(err);
   }
